@@ -135,15 +135,68 @@
 .work-img.gif-hint .placeholder-inner { opacity: 0.25; }
 .work-img.gif-hint .placeholder-label { color: var(--cream); }
 
-.work-info { padding: 20px 22px; }
+/* ─── Video Card ─────────────────────────────── */
+.work-card.has-video { cursor: pointer; }
+.work-img.video-thumb {
+  background: #1a1209 center/cover no-repeat;
+  position: relative;
+}
+.work-img.video-thumb::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(10,6,3,0.42);
+  transition: background 0.25s;
+}
+.work-card.has-video:hover .work-img.video-thumb::after {
+  background: rgba(10,6,3,0.28);
+}
+.video-play-btn {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.video-play-btn::before {
+  content: '';
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(184,92,56,0.85);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(184,92,56,0.4);
+}
+.work-card.has-video:hover .video-play-btn::before {
+  background: var(--rust);
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(184,92,56,0.55);
+}
+.video-play-icon {
+  position: absolute; z-index: 2;
+  width: 20px; height: 20px;
+  margin-left: 3px;
+  color: white;
+  pointer-events: none;
+}
+.video-thumb-label {
+  position: absolute; bottom: 12px; left: 14px; z-index: 2;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(250,247,242,0.55);
+}
+
+/* ─── Illustration Thumbs ────────────────────── */
+.work-img.illus-quicksight { background: #0f1e2e; }
+.work-img.illus-git { background: #16201a; }
+
+/* ─── Card info ──────────────────────────────── */
+.work-info { padding: 22px 24px 24px; }
 .work-name {
   font-size: 15px; font-weight: 500; color: var(--espresso);
-  margin-bottom: 6px; line-height: 1.4;
+  margin-bottom: 10px; line-height: 1.5;
 }
-.work-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 12px; }
-.work-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.work-desc {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.75; margin-bottom: 16px;
+}
+.work-tags { display: flex; flex-wrap: wrap; gap: 7px; }
 
-/* Chapter intro text */
+/* ─── Chapter intro text ─────────────────────── */
 .chapter-intro {
   font-size: 15px; color: var(--text-secondary);
   max-width: 640px; line-height: 1.85;
@@ -152,6 +205,59 @@
   background: var(--warm-white);
   border-left: 3px solid var(--rust);
   border-radius: 0 6px 6px 0;
+}
+
+/* ─── Video Modal ────────────────────────────── */
+.video-modal-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(10,6,3,0.88);
+  align-items: center; justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+}
+.video-modal-overlay.active { display: flex; }
+
+.video-modal {
+  position: relative;
+  background: #1a1209;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 900px; width: 100%;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+  animation: modalIn 0.28s cubic-bezier(0.34,1.2,0.64,1);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(16px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.video-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.video-modal-title {
+  font-size: 14px; font-weight: 500;
+  color: rgba(250,247,242,0.85); letter-spacing: 0.02em;
+}
+.video-modal-close {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(250,247,242,0.6);
+  transition: all 0.2s;
+}
+.video-modal-close:hover {
+  border-color: var(--rust); color: var(--rust);
+  background: rgba(184,92,56,0.1);
+}
+
+.video-modal video {
+  display: block; width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
 }
 
 @media (max-width: 900px) {
@@ -172,7 +278,7 @@
     <li><a href="index.html#career">경력</a></li>
     <li><a href="works.html" class="active">작업물</a></li>
     <li><a href="index.html#contact">연락</a></li>
-    <li><a href="works.html" class="nav-lang active">KR</a></li>
+    <li><a href="../works.html" class="nav-lang">EN</a></li>
   </ul>
 </nav>
 
@@ -186,7 +292,333 @@
 <!-- Works Body -->
 <div class="works-body">
 
-  <!-- Chapter 1: LG Electronics -->
+  <!-- Chapter 1: PayShepherd -->
+  <div class="chapter" id="ch-ps">
+    <div class="chapter-header" onclick="toggleChapter('ch-ps')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2022 — 2026</div>
+        <div class="chapter-title">PayShepherd</div>
+        <div class="chapter-role">Software Engineer — Calgary (Remote)</div>
+      </div>
+      <span class="chapter-count">6 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">B2B SaaS 플랫폼의 전체 제품 라이프사이클에 걸친 풀스택 엔지니어링 — 핵심 기능 개발부터 시스템 안정화, 아키텍처 현대화까지.</div>
+        <div class="works-grid">
+
+          <!-- 1. 3PIA (video) -->
+          <div class="work-card has-video" onclick="openModal('3pia', '3PIA — AI 인보이스 이상 탐지')">
+            <div class="work-img video-thumb" style="background-image:url('../works/thumb_3pia.jpg')">
+              <div class="video-play-btn">
+                <svg class="video-play-icon" viewBox="0 0 24 24" fill="white"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              </div>
+              <span class="video-thumb-label">Demo · click to play</span>
+            </div>
+            <div class="work-info">
+              <div class="work-name">3PIA — AI 인보이스 이상 탐지</div>
+              <div class="work-desc">Claude Sonnet을 활용한 AI 에이전트 파이프라인으로 3rd-party 인보이스 오류를 자동 감지. 출시 3개월 만에 $80K 이상 절감.</div>
+              <div class="work-tags"><span class="tag">AI Agent</span><span class="tag">Claude Sonnet</span><span class="tag">Product Design</span></div>
+            </div>
+          </div>
+
+          <!-- 2. LEMs Aggregation (video) -->
+          <div class="work-card has-video" onclick="openModal('lems-agg', 'LEMs Aggregation Module')">
+            <div class="work-img video-thumb" style="background-image:url('../works/thumb_lems_agg.png')">
+              <div class="video-play-btn">
+                <svg class="video-play-icon" viewBox="0 0 24 24" fill="white"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              </div>
+              <span class="video-thumb-label">Demo · click to play</span>
+            </div>
+            <div class="work-info">
+              <div class="work-name">LEMs Aggregation Module</div>
+              <div class="work-desc">정적 프로젝트별 테이블을 대체한 다중 벤더 통합 빌링 대시보드. 출시 30일 내 레거시 모듈 트래픽의 50%를 흡수.</div>
+              <div class="work-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">DataTable</span></div>
+            </div>
+          </div>
+
+          <!-- 3. LEMs 3.0 (video) -->
+          <div class="work-card has-video" onclick="openModal('lems3', 'LEMs 3.0 — UI Overhaul')">
+            <div class="work-img video-thumb" style="background-image:url('../works/thumb_lems3.jpg')">
+              <div class="video-play-btn">
+                <svg class="video-play-icon" viewBox="0 0 24 24" fill="white"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              </div>
+              <span class="video-thumb-label">Demo · click to play</span>
+            </div>
+            <div class="work-info">
+              <div class="work-name">LEMs 3.0 — UI Overhaul</div>
+              <div class="work-desc">핵심 빌링 모듈 3개월 전면 재설계 — jQuery MVP에서 현대적이고 확장 가능한 인터페이스로 마이그레이션.</div>
+              <div class="work-tags"><span class="tag">UI Redesign</span><span class="tag">Frontend</span><span class="tag">PHP</span></div>
+            </div>
+          </div>
+
+          <!-- 4. Project Details Dashboard (video) -->
+          <div class="work-card has-video" onclick="openModal('proj-details', 'Project Details Dashboard')">
+            <div class="work-img video-thumb" style="background-image:url('../works/thumb_proj_details.jpg')">
+              <div class="video-play-btn">
+                <svg class="video-play-icon" viewBox="0 0 24 24" fill="white"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              </div>
+              <span class="video-thumb-label">Demo · click to play</span>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Project Details Dashboard</div>
+              <div class="work-desc">수천 개에 이르는 클라이언트 프로젝트를 nested 테이블 구조로 불러와 예산과 진척사항을 한눈에 파악할 수 있도록 구현. 로딩 속도 개선을 위해 sequential API call 방식을 적용.</div>
+              <div class="work-tags"><span class="tag">REST API</span><span class="tag">DataTables</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div>
+            </div>
+          </div>
+
+          <!-- 5. QuickSight Migration (illustration, last) -->
+          <div class="work-card">
+            <div class="work-img illus-quicksight">
+              <svg width="100%" height="100%" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+                <line x1="40" y1="30" x2="40" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="40" y1="160" x2="290" y2="160" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="40" y1="120" x2="290" y2="120" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="40" y1="90" x2="290" y2="90" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="40" y1="60" x2="290" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+                <rect x="60" y="100" width="28" height="60" rx="3" fill="#FF9900" opacity="0.55"/>
+                <rect x="102" y="72" width="28" height="88" rx="3" fill="#FF9900" opacity="0.7"/>
+                <rect x="144" y="55" width="28" height="105" rx="3" fill="#FF9900" opacity="0.85"/>
+                <rect x="186" y="80" width="28" height="80" rx="3" fill="rgba(184,92,56,0.6)"/>
+                <rect x="228" y="48" width="28" height="112" rx="3" fill="#FF9900" opacity="0.9"/>
+                <polyline points="74,95 116,68 158,50 200,74 244,44" fill="none" stroke="rgba(255,200,100,0.6)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                <rect x="240" y="16" width="62" height="22" rx="4" fill="rgba(255,153,0,0.15)" stroke="rgba(255,153,0,0.3)" stroke-width="1"/>
+                <text x="271" y="31" text-anchor="middle" font-size="9" font-family="monospace" fill="rgba(255,153,0,0.75)" letter-spacing="0.05em">QuickSight</text>
+                <text x="22" y="95" font-size="9" fill="rgba(255,255,255,0.2)" font-family="monospace">↑</text>
+                <text x="20" y="105" font-size="7" fill="rgba(255,255,255,0.15)" font-family="monospace">200+</text>
+                <text x="17" y="114" font-size="7" fill="rgba(255,255,255,0.15)" font-family="monospace">reports</text>
+              </svg>
+            </div>
+            <div class="work-info">
+              <div class="work-name">BI Migration: Looker → AWS QuickSight</div>
+              <div class="work-desc">BI 스택 전체 마이그레이션. Athena 쿼리 아키텍처를 재설계하여 12개 클라이언트, 200개 이상의 리포트를 40일 내 이전.</div>
+              <div class="work-tags"><span class="tag">AWS QuickSight</span><span class="tag">Athena</span><span class="tag">S3</span></div>
+            </div>
+          </div>
+
+          <!-- 6. Branch Consolidation (illustration, last) -->
+          <div class="work-card">
+            <div class="work-img illus-git">
+              <svg width="100%" height="100%" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+                <text x="30" y="22" font-size="8" fill="rgba(255,255,255,0.2)" font-family="monospace" letter-spacing="0.08em">BEFORE</text>
+                <circle cx="50" cy="100" r="5" fill="rgba(100,200,120,0.5)"/>
+                <line x1="55" y1="100" x2="110" y2="52" stroke="rgba(100,200,120,0.3)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="68" stroke="rgba(100,200,120,0.3)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="84" stroke="rgba(100,200,120,0.25)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="100" stroke="rgba(100,200,120,0.25)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="116" stroke="rgba(100,200,120,0.2)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="132" stroke="rgba(100,200,120,0.2)" stroke-width="1.5"/>
+                <line x1="55" y1="100" x2="110" y2="148" stroke="rgba(100,200,120,0.15)" stroke-width="1.5"/>
+                <circle cx="112" cy="52" r="3" fill="rgba(100,200,120,0.4)"/>
+                <circle cx="112" cy="68" r="3" fill="rgba(100,200,120,0.4)"/>
+                <circle cx="112" cy="84" r="3" fill="rgba(100,200,120,0.35)"/>
+                <circle cx="112" cy="100" r="3" fill="rgba(100,200,120,0.35)"/>
+                <circle cx="112" cy="116" r="3" fill="rgba(100,200,120,0.3)"/>
+                <circle cx="112" cy="132" r="3" fill="rgba(100,200,120,0.3)"/>
+                <circle cx="112" cy="148" r="3" fill="rgba(100,200,120,0.25)"/>
+                <text x="118" y="55" font-size="7" fill="rgba(255,255,255,0.2)" font-family="monospace">×20 branches</text>
+                <text x="118" y="68" font-size="7" fill="rgba(255,255,255,0.15)" font-family="monospace">8 clients</text>
+                <text x="148" y="104" font-size="18" fill="rgba(184,92,56,0.7)">→</text>
+                <text x="186" y="22" font-size="8" fill="rgba(255,255,255,0.2)" font-family="monospace" letter-spacing="0.08em">AFTER</text>
+                <circle cx="200" cy="100" r="5" fill="rgba(184,92,56,0.7)"/>
+                <line x1="205" y1="100" x2="258" y2="72" stroke="rgba(184,92,56,0.5)" stroke-width="2"/>
+                <line x1="205" y1="100" x2="258" y2="100" stroke="rgba(184,92,56,0.5)" stroke-width="2"/>
+                <line x1="205" y1="100" x2="258" y2="128" stroke="rgba(184,92,56,0.4)" stroke-width="2"/>
+                <circle cx="260" cy="72" r="4" fill="rgba(184,92,56,0.65)"/>
+                <circle cx="260" cy="100" r="4" fill="rgba(184,92,56,0.65)"/>
+                <circle cx="260" cy="128" r="4" fill="rgba(184,92,56,0.5)"/>
+                <text x="268" y="75" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace">×3 branches</text>
+                <text x="268" y="103" font-size="7" fill="rgba(255,255,255,0.25)" font-family="monospace">14 clients</text>
+              </svg>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Branch Consolidation</div>
+              <div class="work-desc">다중 클라이언트 Git 전략 재설계. 8개 클라이언트의 20개 브랜치를 14개 클라이언트를 지원하는 3개 브랜치로 통합.</div>
+              <div class="work-tags"><span class="tag">DevOps</span><span class="tag">Architecture</span><span class="tag">Git</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 2: Digital Creator -->
+  <div class="chapter" id="ch-fl">
+    <div class="chapter-header" onclick="toggleChapter('ch-fl')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2022 — 2024</div>
+        <div class="chapter-title">Digital Creator</div>
+        <div class="chapter-role">Freelance — Design & Content</div>
+      </div>
+      <span class="chapter-count">5 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">엔지니어로 풀타임 근무하면서도 밴쿠버 지역 소상공인들을 위한 웹사이트, 브랜드 아이덴티티, 디지털 콘텐츠, 영상 제작을 병행했습니다.</div>
+        <div class="works-grid three-col">
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Bionelife</div>
+              <div class="work-desc">건강 보조제 브랜드 웹사이트 구축, 콘텐츠 제작, 신제품 라벨 디자인.</div>
+              <div class="work-tags"><span class="tag">Web</span><span class="tag">Label Design</span><span class="tag">Content</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">캐나다 햇비마켓</div>
+              <div class="work-desc">밴쿠버 한인 마켓의 스마트스토어 운영 및 주기적 디지털 콘텐츠 제작.</div>
+              <div class="work-tags"><span class="tag">E-commerce</span><span class="tag">Content</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Sushi Misoya</div>
+              <div class="work-desc">메뉴, 예약 플로우, 브랜드 일관성을 갖춘 레스토랑 웹사이트 구축.</div>
+              <div class="work-tags"><span class="tag">Web Design</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">그린라이트 장학회</div>
+              <div class="work-desc">한인 비영리 장학재단 포스터 시리즈 및 비주얼 스타일 가이드 제작.</div>
+              <div class="work-tags"><span class="tag">Poster</span><span class="tag">Style Guide</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">Video placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">주안건축</div>
+              <div class="work-desc">건축 홍보 영상 제작 — 촬영, 편집, 모션 그래픽 전 과정 담당.</div>
+              <div class="work-tags"><span class="tag">Video</span><span class="tag">Motion</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 3: SplitMango -->
+  <div class="chapter" id="ch-sm">
+    <div class="chapter-header" onclick="toggleChapter('ch-sm')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2021 — 2022</div>
+        <div class="chapter-title">SplitMango Inc.</div>
+        <div class="chapter-role">Web Developer & UI/UX Designer — North Vancouver</div>
+      </div>
+      <span class="chapter-count">4 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">밴쿠버 지역 비즈니스를 위한 웹 솔루션 설계 및 개발 — Figma 와이어프레임부터 WordPress·Shopify 배포까지 풀스택으로 담당.</div>
+        <div class="works-grid three-col">
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Rocky Mountain Chocolate</div>
+              <div class="work-desc">캐나다 초콜릿 프랜차이즈 브랜드에 맞는 이커머스 디자인.</div>
+              <div class="work-tags"><span class="tag">UI Design</span><span class="tag">Shopify</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Vancouver Heritage Site Finder</div>
+              <div class="work-desc">밴쿠버 지정 문화유산 건물을 지도 기반으로 탐색하는 도구 — 디자인·개발 전담.</div>
+              <div class="work-tags"><span class="tag">UX Design</span><span class="tag">Web Dev</span><span class="tag">Figma</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">BC Cancer Foundation</div>
+              <div class="work-desc">캐나다 최대 암 연구 모금 재단 WordPress 개발.</div>
+              <div class="work-tags"><span class="tag">WordPress</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Acton Ostry Architects</div>
+              <div class="work-desc">밴쿠버 건축 사무소 포트폴리오 사이트. Statamic CMS, 커스텀 프로젝트 갤러리.</div>
+              <div class="work-tags"><span class="tag">Statamic</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 4: LG Electronics -->
   <div class="chapter" id="ch-lg">
     <div class="chapter-header" onclick="toggleChapter('ch-lg')">
       <div class="chapter-meta">
@@ -201,7 +633,7 @@
     </div>
     <div class="chapter-body">
       <div class="chapter-body-inner">
-        <div class="chapter-intro">Global marketing for OLED TVs and in-store display systems reaching 150+ countries. Built the AI TV demo kit that shipped to ~3,000 stores before "AI" was a household word.</div>
+        <div class="chapter-intro">OLED TV와 매장 디스플레이 시스템의 글로벌 마케팅 — 150개국 이상 도달. "AI"가 대중화되기 전, AI TV 데모 키트를 기획해 전 세계 약 3,000개 매장에 배포.</div>
         <div class="works-grid">
 
           <div class="work-card">
@@ -215,7 +647,7 @@
             </div>
             <div class="work-info">
               <div class="work-name">AI TV In-store Demo Kit</div>
-              <div class="work-desc">20 real-life voice-control demo scenes + physical button device deployed to ~3,000 stores across 15 countries.</div>
+              <div class="work-desc">음성 제어 데모 시나리오 20종 + 물리 버튼 디바이스 — 15개국 약 3,000개 매장 배포.</div>
               <div class="work-tags"><span class="tag">Product Marketing</span><span class="tag">UX</span><span class="tag">Global Rollout</span></div>
             </div>
           </div>
@@ -231,7 +663,7 @@
             </div>
             <div class="work-info">
               <div class="work-name">TV In-store Display Guidelines</div>
-              <div class="work-desc">Annual global display standards distributed to 52 subsidiaries — shelf placement, fixture specs, brand hierarchy.</div>
+              <div class="work-desc">52개 법인에 배포하는 연간 글로벌 디스플레이 기준 — 진열 위치, 집기 규격, 브랜드 위계 포함.</div>
               <div class="work-tags"><span class="tag">Guidelines</span><span class="tag">Visual Design</span><span class="tag">52 Countries</span></div>
             </div>
           </div>
@@ -247,7 +679,7 @@
             </div>
             <div class="work-info">
               <div class="work-name">Global Campaign — IFA / CES</div>
-              <div class="work-desc">Flagship store activations at IFA Berlin and CES Las Vegas, coordinating with local subsidiaries and design agencies.</div>
+              <div class="work-desc">IFA 베를린·CES 라스베이거스 플래그십 매장 활성화 — 현지 법인 및 디자인 에이전시와 협업 총괄.</div>
               <div class="work-tags"><span class="tag">Event Marketing</span><span class="tag">IFA</span><span class="tag">CES</span></div>
             </div>
           </div>
@@ -263,273 +695,8 @@
             </div>
             <div class="work-info">
               <div class="work-name">Retail Field Training (Middle East & Africa)</div>
-              <div class="work-desc">On-site training for local sales teams and store promoters across 13+ countries on TV display and feature messaging.</div>
+              <div class="work-desc">중동·아프리카 13개국 이상의 현지 영업팀 및 판촉사원 대상 TV 디스플레이·기능 메시지 현장 교육.</div>
               <div class="work-tags"><span class="tag">Training</span><span class="tag">MEA Region</span><span class="tag">In-store</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chapter 2: SplitMango -->
-  <div class="chapter" id="ch-sm">
-    <div class="chapter-header" onclick="toggleChapter('ch-sm')">
-      <div class="chapter-meta">
-        <div class="chapter-period">2021 — 2022</div>
-        <div class="chapter-title">SplitMango Inc.</div>
-        <div class="chapter-role">Web Developer & UI/UX Designer — North Vancouver</div>
-      </div>
-      <span class="chapter-count">4 items</span>
-      <div class="chapter-toggle">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-    </div>
-    <div class="chapter-body">
-      <div class="chapter-body-inner">
-        <div class="chapter-intro">Designed and built web solutions for local Vancouver businesses — handling the full stack from Figma wireframes to deployed WordPress and Shopify sites.</div>
-        <div class="works-grid three-col">
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Rocky Mountain Chocolate</div>
-              <div class="work-desc">Brand-aligned e-commerce design for a Canadian chocolate franchise.</div>
-              <div class="work-tags"><span class="tag">UI Design</span><span class="tag">Shopify</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Vancouver Heritage Site Finder</div>
-              <div class="work-desc">Full design & dev — a map-driven tool to explore Vancouver's designated heritage buildings.</div>
-              <div class="work-tags"><span class="tag">UX Design</span><span class="tag">Web Dev</span><span class="tag">Figma</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">BC Cancer Foundation</div>
-              <div class="work-desc">WordPress development for Canada's largest cancer research fundraising organization.</div>
-              <div class="work-tags"><span class="tag">WordPress</span><span class="tag">Dev</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Acton Ostry Architects</div>
-              <div class="work-desc">Clean portfolio site for a Vancouver architecture firm. Statamic CMS, custom project gallery.</div>
-              <div class="work-tags"><span class="tag">Statamic</span><span class="tag">Dev</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chapter 3: Freelance -->
-  <div class="chapter" id="ch-fl">
-    <div class="chapter-header" onclick="toggleChapter('ch-fl')">
-      <div class="chapter-meta">
-        <div class="chapter-period">2022 — 2024</div>
-        <div class="chapter-title">Digital Creator</div>
-        <div class="chapter-role">Freelance — Design & Content</div>
-      </div>
-      <span class="chapter-count">5 items</span>
-      <div class="chapter-toggle">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-    </div>
-    <div class="chapter-body">
-      <div class="chapter-body-inner">
-        <div class="chapter-intro">After-hours design work for local businesses across Vancouver — websites, brand identity, digital content, and video production while working full-time as an engineer.</div>
-        <div class="works-grid three-col">
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Bionelife</div>
-              <div class="work-desc">Website build, content creation, and new product label design for a health supplement brand.</div>
-              <div class="work-tags"><span class="tag">Web</span><span class="tag">Label Design</span><span class="tag">Content</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img gif-hint">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">캐나다 햇비마켓</div>
-              <div class="work-desc">Smart store management and recurring digital content production for a Korean marketplace in Vancouver.</div>
-              <div class="work-tags"><span class="tag">E-commerce</span><span class="tag">Content</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Sushi Misoya</div>
-              <div class="work-desc">Restaurant website build with menu, reservation flow, and brand-consistent visual design.</div>
-              <div class="work-tags"><span class="tag">Web Design</span><span class="tag">Dev</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">그린라이트 장학회</div>
-              <div class="work-desc">Scholarship foundation poster series and visual style guide for a Korean-Canadian nonprofit.</div>
-              <div class="work-tags"><span class="tag">Poster</span><span class="tag">Style Guide</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img gif-hint">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">Video placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">주안건축</div>
-              <div class="work-desc">Architectural promotional video production — shooting, editing, and motion graphics.</div>
-              <div class="work-tags"><span class="tag">Video</span><span class="tag">Motion</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Chapter 4: PayShepherd -->
-  <div class="chapter" id="ch-ps">
-    <div class="chapter-header" onclick="toggleChapter('ch-ps')">
-      <div class="chapter-meta">
-        <div class="chapter-period">2022 — 2026</div>
-        <div class="chapter-title">PayShepherd</div>
-        <div class="chapter-role">Software Engineer — Calgary (Remote)</div>
-      </div>
-      <span class="chapter-count">5 items</span>
-      <div class="chapter-toggle">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      </div>
-    </div>
-    <div class="chapter-body">
-      <div class="chapter-body-inner">
-        <div class="chapter-intro">Full-stack engineering across the entire product lifecycle of a B2B SaaS platform — from core feature development through system stabilization and architectural modernization.</div>
-        <div class="works-grid">
-
-          <div class="work-card">
-            <div class="work-img gif-hint">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">3PIA — AI Invoice Anomaly Detection</div>
-              <div class="work-desc">AI agent pipeline using Claude Sonnet to flag erroneous 3rd-party invoices. Saved $80K+ in 3 months post-launch.</div>
-              <div class="work-tags"><span class="tag">AI Agent</span><span class="tag">Claude Sonnet</span><span class="tag">Product Design</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img gif-hint">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
-                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">LEMs Aggregation Module</div>
-              <div class="work-desc">Dynamic multi-vendor billing dashboard replacing a static per-project table. Captured 50% of legacy module traffic within 30 days.</div>
-              <div class="work-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">DataTable</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">BI Migration: Looker → AWS QuickSight</div>
-              <div class="work-desc">Full BI stack migration. 12 clients, 200+ reports moved in 40 days with redesigned Athena query architecture.</div>
-              <div class="work-tags"><span class="tag">AWS QuickSight</span><span class="tag">Athena</span><span class="tag">S3</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">Branch Consolidation</div>
-              <div class="work-desc">Redesigned multi-client Git strategy. Consolidated 20 branches across 8 clients into 3 branches serving 14 clients.</div>
-              <div class="work-tags"><span class="tag">DevOps</span><span class="tag">Architecture</span><span class="tag">Git</span></div>
-            </div>
-          </div>
-
-          <div class="work-card">
-            <div class="work-img">
-              <div class="placeholder-inner">
-                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
-                <span class="placeholder-label">Image placeholder</span>
-              </div>
-            </div>
-            <div class="work-info">
-              <div class="work-name">LEMs 3.0 — UI Overhaul</div>
-              <div class="work-desc">3-month redesign of the core billing module — migrated from jQuery MVP to a modern, scalable interface.</div>
-              <div class="work-tags"><span class="tag">UI Redesign</span><span class="tag">Frontend</span><span class="tag">PHP</span></div>
             </div>
           </div>
 
@@ -540,12 +707,26 @@
 
 </div><!-- /works-body -->
 
+<!-- Video Modal -->
+<div class="video-modal-overlay" id="videoModal" onclick="handleOverlayClick(event)">
+  <div class="video-modal">
+    <div class="video-modal-header">
+      <span class="video-modal-title" id="modalTitle"></span>
+      <button class="video-modal-close" onclick="closeModal()" aria-label="닫기">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <video id="modalVideo" controls preload="none" playsinline></video>
+  </div>
+</div>
+
 <footer>
   <span>© 2026 서정환</span>
   <a href="index.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='var(--text-muted)'">← 홈으로</a>
 </footer>
 
 <script>
+// ─── Chapter accordion ───────────────────────────
 function toggleChapter(id) {
   const chapter = document.getElementById(id);
   const body = chapter.querySelector('.chapter-body');
@@ -553,9 +734,7 @@ function toggleChapter(id) {
 
   if (isOpen) {
     body.style.maxHeight = body.scrollHeight + 'px';
-    requestAnimationFrame(() => {
-      body.style.maxHeight = '0';
-    });
+    requestAnimationFrame(() => { body.style.maxHeight = '0'; });
     chapter.classList.remove('open');
   } else {
     chapter.classList.add('open');
@@ -566,7 +745,43 @@ function toggleChapter(id) {
   }
 }
 
-// Nav scroll
+// ─── Video modal ─────────────────────────────────
+const VIDEO_MAP = {
+  '3pia':        '../works/PS_3PIA \u2014 AI Invoice Anomaly Detection.mp4',
+  'lems-agg':    '../works/PS_LEMs Aggregation Module.mp4',
+  'lems3':       '../works/PS_Actionabled-Migration.mp4',
+  'proj-details':'../works/PS_Project Details.mp4'
+};
+
+function openModal(key, title) {
+  const src = VIDEO_MAP[key];
+  if (!src) return;
+  document.getElementById('modalTitle').textContent = title;
+  const video = document.getElementById('modalVideo');
+  video.src = src;
+  document.getElementById('videoModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  video.play().catch(() => {});
+}
+
+function closeModal() {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.pause();
+  video.src = '';
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('videoModal')) closeModal();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ─── Nav scroll ───────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('main-nav').style.boxShadow =
     window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
