@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — Junghwan Seo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.works-hero {
+  padding: 160px 56px 72px;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+}
+.works-hero-label {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rust); margin-bottom: 20px; display: block;
+}
+.works-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 300; line-height: 0.95;
+  color: var(--espresso);
+  margin-bottom: 20px;
+}
+.works-hero-title em { font-style: italic; color: var(--rust); }
+.works-hero-sub {
+  font-size: 15px; color: var(--text-muted);
+  max-width: 480px; line-height: 1.8;
+}
+
+/* ─── Chapter ─────────────────────────────────── */
+.works-body { padding: 0 56px 96px; }
+
+.chapter {
+  border-bottom: 1px solid var(--border);
+}
+.chapter:last-child { border-bottom: none; }
+
+.chapter-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 40px 0;
+  cursor: pointer;
+  user-select: none;
+  gap: 24px;
+}
+.chapter-header:hover .chapter-title { color: var(--rust); }
+
+.chapter-meta { flex: 1; }
+.chapter-period {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 6px;
+}
+.chapter-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400; color: var(--espresso);
+  transition: color 0.2s;
+  line-height: 1.2;
+}
+.chapter-role {
+  font-size: 13px; color: var(--rust); margin-top: 5px; font-weight: 500; letter-spacing: 0.03em;
+}
+.chapter-count {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap; letter-spacing: 0.06em;
+}
+.chapter-toggle {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  color: var(--text-muted);
+}
+.chapter-header:hover .chapter-toggle {
+  border-color: var(--rust); color: var(--rust);
+  background: rgba(184,92,56,0.04);
+}
+.chapter-toggle svg { transition: transform 0.3s ease; }
+.chapter.open .chapter-toggle svg { transform: rotate(45deg); }
+
+/* ─── Chapter Body ────────────────────────────── */
+.chapter-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.chapter-body-inner { padding-bottom: 52px; }
+
+/* ─── Works Grid ──────────────────────────────── */
+.works-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  margin-bottom: 32px;
+}
+.works-grid.three-col { grid-template-columns: repeat(3, 1fr); }
+
+.work-card {
+  border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  background: var(--warm-white);
+  transition: all 0.25s ease;
+}
+.work-card:hover {
+  border-color: var(--tan);
+  box-shadow: 0 8px 32px rgba(44,31,20,0.08);
+  transform: translateY(-3px);
+}
+
+/* Placeholder image */
+.work-img {
+  width: 100%; aspect-ratio: 16/10;
+  background: var(--sand);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.work-img.tall { aspect-ratio: 4/5; }
+.work-img.square { aspect-ratio: 1/1; }
+
+.placeholder-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0.4;
+}
+.placeholder-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  background: var(--tan);
+  display: flex; align-items: center; justify-content: center;
+}
+.placeholder-label {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--brown);
+}
+
+/* GIF placeholder hint */
+.work-img.gif-hint { background: var(--espresso); }
+.work-img.gif-hint .placeholder-inner { opacity: 0.25; }
+.work-img.gif-hint .placeholder-label { color: var(--cream); }
+
+.work-info { padding: 20px 22px; }
+.work-name {
+  font-size: 15px; font-weight: 500; color: var(--espresso);
+  margin-bottom: 6px; line-height: 1.4;
+}
+.work-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 12px; }
+.work-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Chapter intro text */
+.chapter-intro {
+  font-size: 15px; color: var(--text-secondary);
+  max-width: 640px; line-height: 1.85;
+  margin-bottom: 36px;
+  padding: 20px 24px;
+  background: var(--warm-white);
+  border-left: 3px solid var(--rust);
+  border-radius: 0 6px 6px 0;
+}
+
+@media (max-width: 900px) {
+  .works-hero { padding: 120px 24px 56px; }
+  .works-body { padding: 0 24px 72px; }
+  .works-grid { grid-template-columns: 1fr; }
+  .works-grid.three-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">JH <span>Seo</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#career">Career</a></li>
+    <li><a href="works.html" class="active">Works</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="kr/works.html" class="nav-lang">KR</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div class="works-hero">
+  <span class="works-hero-label">Portfolio</span>
+  <h1 class="works-hero-title">12 years of<br><em>making things.</em></h1>
+  <p class="works-hero-sub">A record of work across marketing, design, and engineering — from LG Electronics in Seoul to a SaaS startup in Calgary.</p>
+</div>
+
+<!-- Works Body -->
+<div class="works-body">
+
+  <!-- Chapter 1: LG Electronics -->
+  <div class="chapter" id="ch-lg">
+    <div class="chapter-header" onclick="toggleChapter('ch-lg')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2013 — 2019</div>
+        <div class="chapter-title">LG Electronics</div>
+        <div class="chapter-role">Product Marketer — HQ, Seoul</div>
+      </div>
+      <span class="chapter-count">4 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">Global marketing for OLED TVs and in-store display systems reaching 150+ countries. Built the AI TV demo kit that shipped to ~3,000 stores before "AI" was a household word.</div>
+        <div class="works-grid">
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                </div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">AI TV In-store Demo Kit</div>
+              <div class="work-desc">20 real-life voice-control demo scenes + physical button device deployed to ~3,000 stores across 15 countries.</div>
+              <div class="work-tags"><span class="tag">Product Marketing</span><span class="tag">UX</span><span class="tag">Global Rollout</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                </div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">TV In-store Display Guidelines</div>
+              <div class="work-desc">Annual global display standards distributed to 52 subsidiaries — shelf placement, fixture specs, brand hierarchy.</div>
+              <div class="work-tags"><span class="tag">Guidelines</span><span class="tag">Visual Design</span><span class="tag">52 Countries</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Global Campaign — IFA / CES</div>
+              <div class="work-desc">Flagship store activations at IFA Berlin and CES Las Vegas, coordinating with local subsidiaries and design agencies.</div>
+              <div class="work-tags"><span class="tag">Event Marketing</span><span class="tag">IFA</span><span class="tag">CES</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                </div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Retail Field Training (Middle East & Africa)</div>
+              <div class="work-desc">On-site training for local sales teams and store promoters across 13+ countries on TV display and feature messaging.</div>
+              <div class="work-tags"><span class="tag">Training</span><span class="tag">MEA Region</span><span class="tag">In-store</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 2: SplitMango -->
+  <div class="chapter" id="ch-sm">
+    <div class="chapter-header" onclick="toggleChapter('ch-sm')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2021 — 2022</div>
+        <div class="chapter-title">SplitMango Inc.</div>
+        <div class="chapter-role">Web Developer & UI/UX Designer — North Vancouver</div>
+      </div>
+      <span class="chapter-count">4 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">Designed and built web solutions for local Vancouver businesses — handling the full stack from Figma wireframes to deployed WordPress and Shopify sites.</div>
+        <div class="works-grid three-col">
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Rocky Mountain Chocolate</div>
+              <div class="work-desc">Brand-aligned e-commerce design for a Canadian chocolate franchise.</div>
+              <div class="work-tags"><span class="tag">UI Design</span><span class="tag">Shopify</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Vancouver Heritage Site Finder</div>
+              <div class="work-desc">Full design & dev — a map-driven tool to explore Vancouver's designated heritage buildings.</div>
+              <div class="work-tags"><span class="tag">UX Design</span><span class="tag">Web Dev</span><span class="tag">Figma</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">BC Cancer Foundation</div>
+              <div class="work-desc">WordPress development for Canada's largest cancer research fundraising organization.</div>
+              <div class="work-tags"><span class="tag">WordPress</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Acton Ostry Architects</div>
+              <div class="work-desc">Clean portfolio site for a Vancouver architecture firm. Statamic CMS, custom project gallery.</div>
+              <div class="work-tags"><span class="tag">Statamic</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 3: Freelance -->
+  <div class="chapter" id="ch-fl">
+    <div class="chapter-header" onclick="toggleChapter('ch-fl')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2022 — 2024</div>
+        <div class="chapter-title">Digital Creator</div>
+        <div class="chapter-role">Freelance — Design & Content</div>
+      </div>
+      <span class="chapter-count">5 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">After-hours design work for local businesses across Vancouver — websites, brand identity, digital content, and video production while working full-time as an engineer.</div>
+        <div class="works-grid three-col">
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Bionelife</div>
+              <div class="work-desc">Website build, content creation, and new product label design for a health supplement brand.</div>
+              <div class="work-tags"><span class="tag">Web</span><span class="tag">Label Design</span><span class="tag">Content</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">캐나다 햇비마켓</div>
+              <div class="work-desc">Smart store management and recurring digital content production for a Korean marketplace in Vancouver.</div>
+              <div class="work-tags"><span class="tag">E-commerce</span><span class="tag">Content</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Sushi Misoya</div>
+              <div class="work-desc">Restaurant website build with menu, reservation flow, and brand-consistent visual design.</div>
+              <div class="work-tags"><span class="tag">Web Design</span><span class="tag">Dev</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">그린라이트 장학회</div>
+              <div class="work-desc">Scholarship foundation poster series and visual style guide for a Korean-Canadian nonprofit.</div>
+              <div class="work-tags"><span class="tag">Poster</span><span class="tag">Style Guide</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">Video placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">주안건축</div>
+              <div class="work-desc">Architectural promotional video production — shooting, editing, and motion graphics.</div>
+              <div class="work-tags"><span class="tag">Video</span><span class="tag">Motion</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 4: PayShepherd -->
+  <div class="chapter" id="ch-ps">
+    <div class="chapter-header" onclick="toggleChapter('ch-ps')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2022 — 2026</div>
+        <div class="chapter-title">PayShepherd</div>
+        <div class="chapter-role">Software Engineer — Calgary (Remote)</div>
+      </div>
+      <span class="chapter-count">5 items</span>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <div class="chapter-intro">Full-stack engineering across the entire product lifecycle of a B2B SaaS platform — from core feature development through system stabilization and architectural modernization.</div>
+        <div class="works-grid">
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">3PIA — AI Invoice Anomaly Detection</div>
+              <div class="work-desc">AI agent pipeline using Claude Sonnet to flag erroneous 3rd-party invoices. Saved $80K+ in 3 months post-launch.</div>
+              <div class="work-tags"><span class="tag">AI Agent</span><span class="tag">Claude Sonnet</span><span class="tag">Product Design</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img gif-hint">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon" style="background:rgba(255,255,255,0.15)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F2" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                <span class="placeholder-label" style="color:rgba(250,247,242,0.4)">GIF placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">LEMs Aggregation Module</div>
+              <div class="work-desc">Dynamic multi-vendor billing dashboard replacing a static per-project table. Captured 50% of legacy module traffic within 30 days.</div>
+              <div class="work-tags"><span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">DataTable</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">BI Migration: Looker → AWS QuickSight</div>
+              <div class="work-desc">Full BI stack migration. 12 clients, 200+ reports moved in 40 days with redesigned Athena query architecture.</div>
+              <div class="work-tags"><span class="tag">AWS QuickSight</span><span class="tag">Athena</span><span class="tag">S3</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">Branch Consolidation</div>
+              <div class="work-desc">Redesigned multi-client Git strategy. Consolidated 20 branches across 8 clients into 3 branches serving 14 clients.</div>
+              <div class="work-tags"><span class="tag">DevOps</span><span class="tag">Architecture</span><span class="tag">Git</span></div>
+            </div>
+          </div>
+
+          <div class="work-card">
+            <div class="work-img">
+              <div class="placeholder-inner">
+                <div class="placeholder-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B7355" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div>
+                <span class="placeholder-label">Image placeholder</span>
+              </div>
+            </div>
+            <div class="work-info">
+              <div class="work-name">LEMs 3.0 — UI Overhaul</div>
+              <div class="work-desc">3-month redesign of the core billing module — migrated from jQuery MVP to a modern, scalable interface.</div>
+              <div class="work-tags"><span class="tag">UI Redesign</span><span class="tag">Frontend</span><span class="tag">PHP</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /works-body -->
+
+<footer>
+  <span>© 2026 Junghwan Seo</span>
+  <a href="index.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='var(--text-muted)'">← Back to home</a>
+</footer>
+
+<script>
+function toggleChapter(id) {
+  const chapter = document.getElementById(id);
+  const body = chapter.querySelector('.chapter-body');
+  const isOpen = chapter.classList.contains('open');
+
+  if (isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(() => {
+      body.style.maxHeight = '0';
+    });
+    chapter.classList.remove('open');
+  } else {
+    chapter.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.addEventListener('transitionend', () => {
+      if (chapter.classList.contains('open')) body.style.maxHeight = 'none';
+    }, { once: true });
+  }
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').style.boxShadow =
+    window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
+});
+</script>
+</body>
+</html>
