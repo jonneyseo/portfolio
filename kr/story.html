@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>스토리 — 서정환</title>
+<link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<style>
+.story-hero {
+  padding: 160px 56px 80px;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: start;
+}
+.story-hero-label {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rust); margin-bottom: 20px; display: block;
+}
+.story-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300; line-height: 0.95;
+  color: var(--espresso);
+  margin-bottom: 32px;
+}
+.story-hero-title em { font-style: italic; color: var(--rust); }
+.story-hero-body {
+  font-size: 15.5px; color: var(--text-secondary);
+  line-height: 1.9; max-width: 560px;
+}
+.story-hero-body p + p { margin-top: 20px; }
+
+/* Photo placeholder */
+.story-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--sand);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  position: sticky; top: 100px;
+}
+.story-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .story-hero {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 60px;
+    gap: 48px;
+  }
+  .story-photo {
+    aspect-ratio: 4/3;
+    position: static;
+    order: -1;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="../img/logo.svg" alt="서정환"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">홈</a></li>
+    <li><a href="index.html#about">소개</a></li>
+    <li><a href="index.html#career">경력</a></li>
+    <li><a href="works.html">작업물</a></li>
+    <li><a href="story.html" class="active">스토리</a></li>
+    <li><a href="index.html#contact">연락</a></li>
+    <li><a href="../story.html" class="nav-lang">EN</a></li>
+  </ul>
+</nav>
+
+<div class="story-hero">
+  <div>
+    <span class="story-hero-label">About Me</span>
+    <h1 class="story-hero-title">작업 뒤에 있는<br><em>사람.</em></h1>
+    <div class="story-hero-body">
+      <p>어릴 때부터 컴퓨터에 끌렸습니다. 테크 커리어가 뭔지도 모르던 시절, 독학으로 포토샵을 배우고 축구 팬사이트를 만들었습니다.</p>
+      <p>직업적으로는 글로벌 기업의 프로덕트 마케터로 시작했습니다. 수십 개국을 누비며 사람, 시장, 제품이 어떻게 맞물리는지를 체감했습니다. 하지만 기술에 대한 끌림은 사라지지 않았습니다. 결국 캐나다로 이주해 디자인과 개발을 처음부터 다시 배웠습니다.</p>
+      <p>지금은 모든 제품에 세 가지 시선을 가져옵니다. 올바른 문제를 정의하는 마케터의 직관, 올바른 경험을 만드는 디자이너의 안목, 그리고 그것을 세심하게 구현하고 개선하는 엔지니어의 집중력입니다.</p>
+      <p>일 밖에서는 조용하지만 활동적입니다. 마라톤을 뛰고, 축구와 골프를 즐기며, 가족과 캠핑을 가고, 틈틈이 여행으로 재충전합니다.</p>
+    </div>
+  </div>
+
+  <div class="story-photo">
+    <img src="../img/me.jpg" alt="서정환">
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 서정환</span>
+  <a href="index.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='var(--text-muted)'">← 홈으로</a>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').style.boxShadow =
+    window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
+});
+</script>
+</body>
+</html>

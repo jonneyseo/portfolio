@@ -34,13 +34,13 @@
 }
 .hero-eyebrow::before { content:''; width:36px; height:1px; background:var(--rust); }
 .hero-name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(60px, 9vw, 108px);
   font-weight: 300; line-height: 0.95;
-  color: var(--espresso); letter-spacing: -0.02em; margin-bottom: 12px;
+  color: var(--espresso); letter-spacing: 0.1em; margin-bottom: 12px;
   opacity: 0; animation: fadeUp 0.9s ease 0.35s forwards;
 }
-.hero-name em { font-style: italic; color: var(--rust); font-weight: 300; }
+.hero-name em { font-style: normal; color: var(--espresso); font-weight: 300; }
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(17px, 2.5vw, 26px);
@@ -118,7 +118,7 @@
 }
 .project-card:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px); }
 .project-card:hover::after { transform: scaleX(1); }
-.project-num { font-family: var(--font-display); font-size: 52px; color: rgba(255,255,255,0.06); line-height: 1; margin-bottom: 16px; font-weight: 300; }
+.project-num { font-family: var(--font-display); font-size: 52px; color: rgba(255,255,255,0.5); line-height: 1; margin-bottom: 16px; font-weight: 300; }
 .project-title { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.9); margin-bottom: 12px; line-height: 1.45; }
 .project-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 20px; }
 .project-meta { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -164,6 +164,7 @@
     <li><a href="#projects">프로젝트</a></li>
     <li><a href="#skills">스킬</a></li>
     <li><a href="works.html">작업물</a></li>
+    <li><a href="story.html">스토리</a></li>
     <li><a href="#contact">연락</a></li>
     <li><a href="../index.html" class="nav-lang">EN</a></li>
   </ul>
@@ -206,6 +207,21 @@
         <p>LG전자에서 15개국 3,000개 매장에 AI TV 경험을 전달했고, 캐나다에서 디자인과 개발을 모두 배웠으며, B2B SaaS 스타트업에서 MVP 단계부터 아키텍처 현대화까지 제품 라이프사이클 전반을 경험했습니다. Claude Sonnet 기반 AI 인보이스 분석 도구는 론칭 3개월 만에 $80K+ 이상의 잘못 청구된 금액을 세이빙했습니다.</p>
         <p>뿌리가 튼튼한 Product Owner로서, 제품 전략 수립과 로드맵 설계를 주도하며 사용자 인사이트와 기술 실행력을 연결하는 역할을 수행하고자 합니다.</p>
       </div>
+      <a href="story.html" style="
+        display: inline-flex; align-items: center; gap: 8px;
+        margin-top: 28px;
+        font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+        color: var(--rust);
+        border: 1px solid var(--rust);
+        padding: 10px 22px; border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.2s;
+      "
+      onmouseover="this.style.background='var(--rust)';this.style.color='#FAF7F2'"
+      onmouseout="this.style.background='transparent';this.style.color='var(--rust)'">
+        더 알아보기
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
     </div>
     <div class="about-pillars reveal">
       <div class="pillar">
@@ -352,6 +368,25 @@
       <div class="project-impact">Design & Dev 전 과정 단독 수행</div>
     </div>
   </div>
+
+  <div style="text-align:center; padding: 48px 0 8px;">
+    <a href="works.html" style="
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #2C1F14;
+      background: #FAF7F2;
+      border: 1px solid #FAF7F2;
+      padding: 12px 28px; border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+    "
+    onmouseover="this.style.background='#fff';this.style.borderColor='#fff'"
+    onmouseout="this.style.background='#FAF7F2';this.style.borderColor='#FAF7F2'">
+      작업물 전체 보기
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
 </section>
 
 <section class="skills" id="skills">
@@ -409,17 +444,13 @@
   <h2 class="contact-headline reveal">함께 만들고<br>싶은 <em>제품</em>이 있으신가요?</h2>
   <p class="contact-sub reveal">마케터의 시각, 디자이너의 감각, 개발자의 실행력을 한 명에게서 찾고 계신다면 언제든지 연락주세요.</p>
   <div class="contact-links reveal">
-    <a href="mailto:hello@junghwanseo.com" class="contact-link">
+    <a href="mailto:jonneyseo@gmail.com" class="contact-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
       이메일 보내기
     </a>
-    <a href="https://linkedin.com/in/junghwanseo" target="_blank" class="contact-link">
+    <a href="https://linkedin.com/in/jonneyseo" target="_blank" class="contact-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
-    </a>
-    <a href="https://github.com/junghwanseo" target="_blank" class="contact-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
     </a>
     <a href="works.html" class="contact-link">✦ 작업물 보기</a>
   </div>

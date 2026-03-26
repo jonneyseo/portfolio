@@ -376,6 +376,20 @@
   background: #000;
 }
 
+/* ─── BCIT link button ───────────────────────── */
+.bcit-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+  color: var(--rust);
+  border: 1px solid var(--rust);
+  padding: 10px 20px; border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.bcit-link:hover {
+  background: var(--rust); color: var(--cream);
+}
+
 @media (max-width: 900px) {
   .works-hero { padding: 120px 24px 56px; }
   .works-body { padding: 0 24px 72px; }
@@ -402,7 +416,7 @@
 <div class="works-hero">
   <span class="works-hero-label">Portfolio</span>
   <h1 class="works-hero-title">12 years of<br><em>making things.</em></h1>
-  <p class="works-hero-sub">A record of work across marketing, design, and engineering — from LG Electronics in Seoul to a SaaS startup in Calgary.</p>
+  <p class="works-hero-sub">A record of work across marketing, design, and engineering — from LG Electronics in Seoul, through a web agency in North Vancouver, to a SaaS startup in Calgary.</p>
 </div>
 
 <!-- Works Body -->
@@ -414,7 +428,7 @@
       <div class="chapter-meta">
         <div class="chapter-period">2022 — 2026</div>
         <div class="chapter-title">PayShepherd</div>
-        <div class="chapter-role">Software Engineer — Calgary (Remote)</div>
+        <div class="chapter-role">Software Engineer — Calgary AB (Remote)</div>
       </div>
       <span class="chapter-count">6 items</span>
       <div class="chapter-toggle">
@@ -580,7 +594,7 @@
       <div class="chapter-meta">
         <div class="chapter-period">2022 — 2024</div>
         <div class="chapter-title">Digital Creator</div>
-        <div class="chapter-role">Freelance — Design & Content</div>
+        <div class="chapter-role">Freelance — Digital Design & Content</div>
       </div>
       <span class="chapter-count">3 items</span>
       <div class="chapter-toggle">
@@ -653,7 +667,7 @@
       <div class="chapter-meta">
         <div class="chapter-period">2021 — 2022</div>
         <div class="chapter-title">SplitMango Inc.</div>
-        <div class="chapter-role">Web Developer & UI/UX Designer — North Vancouver</div>
+        <div class="chapter-role">Web Developer & UI/UX Designer — North Vancouver BC</div>
       </div>
       <span class="chapter-count">5 items</span>
       <div class="chapter-toggle">
@@ -745,7 +759,30 @@
     </div>
   </div>
 
-  <!-- Chapter 4: LG Electronics -->
+  <!-- Chapter 4: BCIT -->
+  <div class="chapter" id="ch-bcit">
+    <div class="chapter-header" onclick="toggleChapter('ch-bcit')">
+      <div class="chapter-meta">
+        <div class="chapter-period">2019 — 2021</div>
+        <div class="chapter-title">BCIT</div>
+        <div class="chapter-role">Student — New Media Design & Web Development, Burnaby</div>
+      </div>
+      <div class="chapter-toggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <div class="chapter-body-inner">
+        <p style="font-size:15px; color:var(--text-secondary); line-height:1.85; max-width:640px; margin-bottom:28px;">I enrolled in BCIT's New Media Design & Web Development program to expand my career into a role that bridges both design and engineering. The curriculum covered a wide range — illustration, editorial design, UI/UX design and research methodology, web scripting, app development, and photo and video production — building end-to-end creative and technical capability across the product spectrum.</p>
+        <a href="bcit/index.html" target="_blank" rel="noopener" class="bcit-link">
+          View Student Portfolio (Deprecated)
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter 5: LG Electronics -->
   <div class="chapter" id="ch-lg">
     <div class="chapter-header" onclick="toggleChapter('ch-lg')">
       <div class="chapter-meta">

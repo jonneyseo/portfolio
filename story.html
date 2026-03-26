@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story — John Seo</title>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+.story-hero {
+  padding: 160px 56px 80px;
+  background: var(--warm-white);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 80px;
+  align-items: start;
+}
+.story-hero-label {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--rust); margin-bottom: 20px; display: block;
+}
+.story-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 80px);
+  font-weight: 300; line-height: 0.95;
+  color: var(--espresso);
+  margin-bottom: 32px;
+}
+.story-hero-title em { font-style: italic; color: var(--rust); }
+.story-hero-body {
+  font-size: 15.5px; color: var(--text-secondary);
+  line-height: 1.9; max-width: 560px;
+}
+.story-hero-body p + p { margin-top: 20px; }
+
+/* Photo placeholder */
+.story-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--sand);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  position: sticky; top: 100px;
+}
+.story-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+.story-photo-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  opacity: 0.35;
+}
+.story-photo-placeholder svg { color: var(--brown); }
+.story-photo-placeholder span {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--brown);
+}
+
+/* Body section */
+.story-body {
+  padding: 80px 56px 100px;
+  max-width: 720px;
+}
+
+@media (max-width: 900px) {
+  .story-hero {
+    grid-template-columns: 1fr;
+    padding: 120px 24px 60px;
+    gap: 48px;
+  }
+  .story-photo {
+    aspect-ratio: 4/3;
+    position: static;
+    order: -1;
+  }
+  .story-body { padding: 56px 24px 80px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo"><img src="img/logo.svg" alt="JH Seo"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#career">Career</a></li>
+    <li><a href="works.html">Works</a></li>
+    <li><a href="story.html" class="active">Story</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="kr/story.html" class="nav-lang">KR</a></li>
+  </ul>
+</nav>
+
+<div class="story-hero">
+  <div>
+    <span class="story-hero-label">About Me</span>
+    <h1 class="story-hero-title">The person<br>behind the <em>work.</em></h1>
+    <div class="story-hero-body">
+      <p>I've been drawn to computers since I was a kid — teaching myself Photoshop and building a football website long before I knew what a career in tech looked like.</p>
+      <p>I started professionally as a product marketer at a global company, which took me across dozens of countries and gave me a wider lens on how people, markets, and products interact. But the pull toward technology never went away. Eventually, I made the move to Canada and started over — studying design and development from scratch.</p>
+      <p>Today, I bring three perspectives to every product I work on: a marketer's instinct for defining the right problem, a designer's eye for shaping the right experience, and an engineer's discipline for building and improving it with care.</p>
+      <p>Outside of work, I'm quiet but active. I run marathons, play football and golf, go camping with my family, and recharge through travel whenever I can.</p>
+    </div>
+  </div>
+
+  <div class="story-photo">
+    <img src="img/me.jpg" alt="John Seo">
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 John Seo</span>
+  <a href="index.html" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='var(--rust)'" onmouseout="this.style.color='var(--text-muted)'">← Back to home</a>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').style.boxShadow =
+    window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
+});
+</script>
+</body>
+</html>
