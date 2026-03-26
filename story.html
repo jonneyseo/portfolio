@@ -85,15 +85,35 @@
 
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"><img src="img/logo.svg" alt="JH Seo"></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#career">Career</a></li>
-    <li><a href="works.html">Works</a></li>
-    <li><a href="story.html" class="active">Story</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="kr/story.html" class="nav-lang">KR</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links nav-group-a">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#career">Career</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-links nav-group-b">
+      <li><a href="works.html">Works</a></li>
+      <li><a href="story.html" class="active">My Story</a></li>
+    </ul>
+  </div>
+  <button class="nav-mobile-btn" id="navMobileBtn" aria-label="Menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <ul class="nav-mobile-a">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#career">Career</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-mobile-b">
+      <li><a href="works.html">Works</a></li>
+      <li><a href="story.html" class="active">My Story</a></li>
+    </ul>
+  </div>
 </nav>
 
 <div class="story-hero">
@@ -101,10 +121,10 @@
     <span class="story-hero-label">My Story</span>
     <h1 class="story-hero-title">Born curious,<br>built from <em>scratch.</em></h1>
     <div class="story-hero-body">
-      <p>I've been drawn to computers since I was a kid — teaching myself Photoshop and building a football website long before I knew what a career in tech looked like.</p>
-      <p>I started professionally as a product marketer at a global company, which took me across dozens of countries and gave me a wider lens on how people, markets, and products interact. But I never stopped thinking about building things. Eventually, I made the move to Canada and started over — studying design and development from scratch.</p>
+      <p>I've been drawn to computers since I was a kid — teaching myself Photoshop and building a soccer website long before I knew what a career in tech looked like.</p>
+      <p>My career began in product marketing at a global company, taking me across dozens of countries and giving me a wider lens on how people, markets, and products interact. But I never stopped thinking about building things. Eventually, that curiosity led me to Canada — where I started over, studying design and development from scratch.</p>
       <p>Today, I bring three perspectives to every product I work on: a marketer's instinct for defining the right problem, a designer's eye for shaping the right experience, and an engineer's discipline for building and improving it with care.</p>
-      <p>Outside of work, I'm quiet but active. I run marathons, play football and golf, go camping with my family, and recharge through travel whenever I can.</p>
+      <p>Outside of work, I'm quiet but active. I run marathons, play soccer and golf, go camping with my family, and recharge through travel whenever I can.</p>
     </div>
   </div>
 
@@ -123,6 +143,26 @@ window.addEventListener('scroll', () => {
   document.getElementById('main-nav').style.boxShadow =
     window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
 });
+
+// Mobile menu
+(function() {
+  const btn = document.getElementById('navMobileBtn');
+  const menu = document.getElementById('navMobileMenu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+  }));
+  document.addEventListener('click', e => {
+    if (!e.target.closest('nav')) {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -402,19 +402,40 @@
 
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"><img src="img/logo.svg" alt="JH Seo"></a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="index.html#career">Career</a></li>
-    <li><a href="works.html" class="active">Works</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
-    <li><a href="kr/works.html" class="nav-lang">KR</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links nav-group-a">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#career">Career</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-links nav-group-b">
+      <li><a href="works.html" class="active">Works</a></li>
+      <li><a href="story.html">My Story</a></li>
+    </ul>
+  </div>
+  <button class="nav-mobile-btn" id="navMobileBtn" aria-label="Menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <ul class="nav-mobile-a">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#career">Career</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-mobile-b">
+      <li><a href="works.html" class="active">Works</a></li>
+      <li><a href="story.html">My Story</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- Hero -->
 <div class="works-hero">
-  <span class="works-hero-label">Portfolio</span>
+  <span class="works-hero-label">Works - Portfolio</span>
   <h1 class="works-hero-title">12 years of<br><em>making things.</em></h1>
   <p class="works-hero-sub">A record of work across marketing, design, and engineering — from LG Electronics in Seoul, through a web agency in North Vancouver, to a SaaS startup in Calgary.</p>
 </div>
@@ -1075,6 +1096,26 @@ window.addEventListener('scroll', () => {
   document.getElementById('main-nav').style.boxShadow =
     window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
 });
+
+// Mobile menu
+(function() {
+  const btn = document.getElementById('navMobileBtn');
+  const menu = document.getElementById('navMobileMenu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+  }));
+  document.addEventListener('click', e => {
+    if (!e.target.closest('nav')) {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+})();
 </script>
 </body>
 </html>

@@ -239,15 +239,35 @@
 <!-- Nav -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo"><img src="img/logo.svg" alt="JH Seo"></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#career">Career</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="works.html">Works</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="kr/index.html" class="nav-lang">KR</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links nav-group-a">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-links nav-group-b">
+      <li><a href="works.html">Works</a></li>
+      <li><a href="story.html">My Story</a></li>
+    </ul>
+  </div>
+  <button class="nav-mobile-btn" id="navMobileBtn" aria-label="Menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <ul class="nav-mobile-a">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <ul class="nav-mobile-b">
+      <li><a href="works.html">Works</a></li>
+      <li><a href="story.html">My Story</a></li>
+    </ul>
+  </div>
 </nav>
 
 <!-- Hero -->
@@ -300,7 +320,7 @@
       "
       onmouseover="this.style.background='var(--rust)';this.style.color='#FAF7F2'"
       onmouseout="this.style.background='transparent';this.style.color='var(--rust)'">
-        More About Me
+        My Story
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
@@ -561,7 +581,7 @@
         <div class="skill-item">Adobe Creative Suite</div>
         <div class="skill-item">UI/UX Strategy</div>
         <div class="skill-item">Information Architecture</div>
-        <div class="skill-item">WordPress / Shopify</div>
+        <div class="skill-item">WordPress / Shopify / Statamic</div>
       </div>
     </div>
   </div>
@@ -589,7 +609,7 @@
 
 <footer>
   <span>© 2026 John Seo</span>
-  <span>Marketer · Designer · Engineer</span>
+  <span>Marketer · Designer · Developer</span>
 </footer>
 
 <script>
@@ -607,6 +627,26 @@ window.addEventListener('scroll', () => {
   document.getElementById('main-nav').style.boxShadow =
     window.scrollY > 40 ? '0 2px 20px rgba(44,31,20,0.07)' : 'none';
 });
+
+// Mobile menu
+(function() {
+  const btn = document.getElementById('navMobileBtn');
+  const menu = document.getElementById('navMobileMenu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+  }));
+  document.addEventListener('click', e => {
+    if (!e.target.closest('nav')) {
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+    }
+  });
+})();
 </script>
 </body>
 </html>
