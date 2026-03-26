@@ -1,0 +1,232 @@
+<!-- MDIA 2294 Web Script -->
+<!-- Final Project: JavaScript and jQery -->
+
+<!-- Third party control -->
+<!-- Pagescrolling: https://alvarotrigo.com/pagePiling -->
+<!-- Chart: https://www.chartjs.org -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })
+    (window,document,'script','dataLayer','GTM-KLS7RSJ');
+    </script>
+
+	<title>MDIA 2294 :: John Seo</title>
+
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+	<!-- This is to invoke page scroll function -->
+	<script type="text/javascript">
+		var deleteLog = false;
+
+		$(document).ready(function() {
+	    	$('#pagepiling').pagepiling({
+	    		menu: '#menu',
+	    		anchors: ['page1', 'page2', 'page3'],
+			    sectionsColor: ['#601a36', '#2C3E50', '#02594c'],
+			    loopTop: true,
+			    loopBottom: true
+			});
+	    });
+    </script>
+</head>
+
+<body>
+	<!-- This is a aticky navbar -->
+	<ul id="menu2">
+		<li id="title"> <a href="page2.html">MDIA 2294 :: John Seo</a></li>
+		<div id="right">
+		<li><a href="index.html">JavaScripting Concepts</a></li>
+		<li class="active"><a href="page2.html">jQuery Concepts</a></li>
+		<li><a href="page3.html">jQuery Example</a></li>
+	</div>
+	</ul>
+
+	<div id="pagepiling">
+
+		<!-- Section 1 -->
+	    <div class="section" id="section1">
+	    	<h5 class="top"><a class="arrow" href="#page3">&and;</a></h5>
+	    	<h1>jQuery</h1>
+	    	<br><h2>Selector syntax and types of selectors</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item1">
+					The way jQuery approaches to DOM is as same as CSS, they use selector. A basic jQuery selector syntax looks like <br><br>
+					<span class="important"> $(selector).action(); </span> <br>
+					$ is the prefix that identities where jQuery begins. <br><br>
+					Selector can be #id, .class, div or this. Action can be a DOM attribute like text, CSS attribute, event handler or function. The best advantage to use jQuery instead of JavaScript is it shortens codes, which enables us to quickly access to DOM. For example, to select id ‘apple’, jQuery expresses <span class="important2"> $(‘#apple’)</span>, whereas JavaScript has to use <span class="important2"> document.getElementById(‘apple’)</span>.
+					</div>
+
+					<div class="grid-item item1">
+					The jQuery element selector selects elements based on the element name.
+						<!-- This is a hand made code viewer -->
+						<div class="code code4">
+							<span class="black">$(document). ready(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"button"</span>
+							<span class="black">).click(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;&nbsp;$(</span>
+							<span class="purple">"#test"</span>
+							<span class="black">).hide();</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;}); </span>
+							<br>
+							<span class="black">}); </span>
+							<br>
+							<span class="green">// When a user clicks a button, the element with id="test" will be hidden. </span>
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page2">&or;</a></h5>
+	    </div>
+
+	    <!-- Section 2 -->
+	    <div class="section" id="section2">
+	    	<div class="intro">
+	    	<h5 class="top"><a class="arrow" href="#page1">&and;</a></h5>
+	    	<h1>jQuery</h1><br>
+	    	<h2>Some examples of DOM get and set actions</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item2">
+					We can ‘get’ and ‘set’ from DOM. In this sentence, As I interpret, <span class="important">‘get’</span> means <span class="important">‘read-only’</span> and <span class="important"> ‘set’</span> is on <span class="important"> ‘change’</span> something. For example, DOM ‘get’ can be calls and prints some texts that are already written in a class. DOM ‘set’ can print certain texts directly without bringing them from somewhere.
+					</div>
+					<div class="grid-item item2">
+						<!-- This is a hand made code viewer -->
+						<div class="code code5">
+							<span class="black">$(</span>
+							<span class="purple">"button"</span>
+							<span class="black">).click(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"h1, h2, p"</span>
+							<span class="black">).addClass(</span>
+							<span class="purple">"blue"</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"div"</span>
+							<span class="black">).addClass(</span>
+							<span class="purple">"important"</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">}); </span>
+							<br>
+							<span class="green">//Classes are added to the elements</span> 
+						</div>
+						<div class="code code5">
+							<span class="black">$(</span>
+							<span class="purple">"button"</span>
+							<span class="black">).click(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"h1, h2, p"</span>
+							<span class="black">).removeClass(</span>
+							<span class="purple">"blue"</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">}); </span>
+							<br>
+							<span class="green">//Class is removed from the elements</span> 
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page3">&or;</a></h5>
+	    	</div>
+	    </div>
+
+	    <!-- Section 3 -->
+	    <div class="section" id="section3">
+	    	<div class="intro">
+	    	<h5 class="top"><a class="arrow" href="#page2">&and;</a></h5>
+	    	<h1>jQuery</h1><br>
+	    	<h2>Some example of effects or animation actions</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item2">
+					jQuery has useful built-in effects including <span class="important"> Hide and Show, Fade In and Out, Slide Up and Down.</span> These are literally doing as its name suggest. For Animate effect, it performs a set of CSS properties such as moving left or right, changing colours and sizes.
+					</div>
+					<div class="grid-item item2">
+						<!-- This is a hand made code viewer -->
+						<div class="code code6">
+							<span class="black">$(</span>
+							<span class="purple">"button"</span>
+							<span class="black">).click(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"#div1"</span>
+							<span class="black">).fadeIn();</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"#div1"</span>
+							<span class="black">).fadeIn(</span>
+							<span class="purple">"slow"</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"#div3"</span>
+							<span class="black">).fadeIn(</span>
+							<span class="red">3000</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">}); </span>
+							<br>
+							<span class="green">//Three targets fade in in different ways</span>
+						</div>
+						<div class="code code6">
+							<span class="black">$(</span>
+							<span class="purple">"button"</span>
+							<span class="black">).click(</span>
+							<span class="blue">function</span>
+							<span class="black">(){</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;$(</span>
+							<span class="purple">"#div"</span>
+							<span class="black">).animate({left:</span>
+							<span class="purple">'250px'</span>
+							<span class="black">}); </span>
+							<br>
+							<span class="black">}); </span>
+							<br>
+							<span class="green">//The target moves 250px to the right</span>
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page1">&or;</a></h5>
+	    	</div>
+	    </div>
+
+	</div>
+
+</body>
+</html>

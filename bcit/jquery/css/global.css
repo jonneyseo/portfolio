@@ -1,0 +1,136 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h1, #menu2 {
+  font-weight: 400;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.3em;
+  color: #999;
+}
+
+h5 {
+  font-size:3em;
+  font-weight: 400;
+}
+
+h5.top{
+  position: absolute;
+  top: 3%;
+  left: 50%;
+}
+
+h5.bottom{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+}
+
+a.arrow{
+  color: #999;
+}
+
+a.arrow:hover{
+  color: #fff;
+}
+
+hr {
+  width: 5%;
+}
+
+#right {
+  float: right;
+}
+
+.important {
+  font-weight: 400;
+  font-size: 120%;
+  color: #f8de7e;
+}
+
+.important2 {
+  font-weight: 400;
+  color: #f8de7e;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin: 40px 15% 40px 15%;
+  color: #eee;
+}
+
+.grid-item {
+  padding: 20px 40px;
+}
+
+.item1 {
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 160%;
+  padding-bottom: 20px;
+}
+
+.item2 {
+  text-align: left;
+  font-size: 1.2em;
+  line-height: 180%;
+}
+
+.code {
+  font-family: 'Roboto Mono', monospace;
+  margin: auto;
+  margin-top: 20px;
+  /*width: 70%;*/
+  padding: 15px;
+  padding-left: 30px;
+  background-color: #eee;
+  color: black;
+  font-size: 0.8em;
+  line-height: 120%;
+  border-left: 4px solid;
+  border-color: #999;
+}
+
+.code2 {
+  margin-top: 0px;
+}
+
+span.cite {
+  font-size: 80%;
+  color: #999;
+}
+
+span.black {
+  color: black;
+}
+
+span.blue {
+  color: blue;
+}
+
+span.red {
+  color: red;
+}
+
+span.green {
+  color: green;
+}
+
+span.purple {
+  color: purple;
+}
+
+.chart{
+  width:50%;
+  margin: auto;
+}
+
+.chart2{
+  width:30%;
+  margin: auto;
+}

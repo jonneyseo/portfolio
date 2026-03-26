@@ -1,0 +1,303 @@
+<!-- MDIA 2294 Web Script -->
+<!-- Final Project: JavaScript and jQery -->
+
+<!-- Third party control -->
+<!-- Pagescrolling: https://alvarotrigo.com/pagePiling -->
+<!-- Chart: https://www.chartjs.org -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })
+    (window,document,'script','dataLayer','GTM-KLS7RSJ');
+    </script>
+
+  <title>MDIA 2294 :: John Seo</title>
+
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
+  <link rel="stylesheet" type="text/css" href="css/examples.css" />
+  <link rel="stylesheet" type="text/css" href="css/global.css" />
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script type="text/javascript" src="js/Chart.js"></script>
+  <!-- This is to invoke page scroll function -->
+  <script type="text/javascript">
+    var deleteLog = false;
+
+    $(document).ready(function() {
+        $('#pagepiling').pagepiling({
+          menu: '#menu',
+          anchors: ['page1', 'page2', 'page3'],
+          sectionsColor: ['#02594c', '#601a36', '#2C3E50'],
+          loopTop: true,
+          loopBottom: true
+      });
+      });
+    </script>
+</head>
+
+<body>
+
+  <!-- This is a sticky navbar -->
+  <ul id="menu2">
+    <li id="title"> <a href="index.html">MDIA 2294 :: John Seo</a></li>
+    <div id="right">
+    <li><a href="index.html">JavaScripting Concepts</a></li>
+    <li><a href="page2.html">jQuery Concepts</a></li>
+    <li class="active"><a href="page3.html">jQuery Example</a></li>
+  </div>
+  </ul>
+
+  <div id="pagepiling">
+
+      <div class="section" id="section1">
+        <h5 class="top"><a class="arrow" href="#page3">&and;</a></h5>
+        <h1>COVID-19</h1>
+        <h2>BC confirmed cases as of September 24</h2><br><hr>
+          <div class="chart">
+            <!-- chart JS inserted here -->
+            <canvas id="bar-chart" width="800" height="450"></canvas>
+          </div>
+          <h5 class="bottom"><a class="arrow" href="#page2">&or;</a></h5>
+      </div>
+
+      <div class="section" id="section2">
+        <div class="intro">
+          <h5 class="top"><a class="arrow" href="#page1">&and;</a></h5>
+          <h1>COVID-19</h1>
+          <h2>The number of patients from all states has rapidly growing</h2><br><hr>
+            <div class="chart">
+              <!-- chart JS inserted here -->
+              <canvas id="line-chart" width="800" height="450"></canvas>
+          </div>
+        <h5 class="bottom"><a class="arrow" href="#page3">&or;</a></h5>
+        </div>
+      </div>
+
+      <div class="section" id="section3">
+        <div class="intro">
+          <h5 class="top"><a class="arrow" href="#page2">&and;</a></h5>
+          <h1>COVID-19</h1>
+          <h2>Some countries have shown its severity by facts</h2><br><hr>
+            <div class="chart2">
+              <!-- chart JS inserted here -->
+              <canvas id="bubble-chart" width="800" height="800"></canvas>
+            </div>
+          <h5 class="bottom"><a class="arrow" href="#page1">&or;</a></h5>
+        </div>
+      </div>
+
+  </div>
+
+  <script>
+
+  // This is chart 1 : COVID-19 BC bar graph
+  // Data from BC Provincial Health Services Authority
+  // http://www.bccdc.ca/about/news-stories/stories/2020/information-on-novel-coronavirus
+  new Chart(document.getElementById("bar-chart"), {
+      type: 'bar',
+      data: {
+        labels: ["Fraser Health", "Vancouver Coastal Health", "Interior Health", "Northern Health", "Island Health"],
+        datasets: [
+          {
+              label: "Population",
+              backgroundColor: ["#ff9aa2", "#ffb7b2","#e2f0cb","#b5ead7","#c7ceea"],
+              data: [4361,3094,520,278,203]
+          }
+        ]
+      },
+        options: {
+        legend: { display: false },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#888'
+                },
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: '#888'
+                },
+            }]
+        } 
+      }
+  });
+
+  // This is chart 2 : COVID-19 CANADA line graph
+  // Data from canada.ca official hompage's CSV data
+  // https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html
+  new Chart(document.getElementById("line-chart"), {
+      type: 'line',
+      data: {
+        labels: ['FEB24','MAR24','APR24','MAY24','JUN24','JUL24','AUG24','SEP24'],
+        datasets: [
+          { 
+              data: [10,1959,43877,84688,102231,113193,125647,149094],
+              label: "CANADA",
+              borderColor: "#62b5ff",
+              fill: false
+          },
+          { 
+              data: [4,588,13519,25500,34016,38405,41507,48496],
+              label: "Ontario",
+              borderColor: "#ffabab",
+              fill: false
+          }, 
+          { 
+              data: [6,617,1853,2517,2849,3419,5184,8543],
+              label: "British Columbia",
+              borderColor: "#e2f0cb",
+              fill: false
+          },
+          { 
+              data: [0,221,22616,47411,54937,58243,61741,69670],
+              label: "Quebec",
+              borderColor: "#77e59b",
+              fill: false
+          },
+          { 
+              data: [0,358,4017,6860,7825,10086,13006,17190],
+              label: "Alberta",
+              borderColor: "#c7ceea",
+              fill: false
+          }
+        ]
+      },
+  });
+
+  // This is chart 3 : COVID-19 Worldwide bubble graph
+  // Data from worldomometers' table
+  // https://www.worldometers.info/coronavirus/
+  new Chart(document.getElementById("bubble-chart"), {
+      type: 'bubble',
+      data: {
+        labels: "Corona Worldwide",
+        datasets: [
+        {
+          label: ["South Africa"],
+          backgroundColor: "rgba(255,221,50,0.2)",
+          borderColor: "rgba(255,221,50,1)",
+          data: [{
+            x: 11214,
+            y: 2.4,
+            r: 9.28
+          }]
+        }, 
+        {
+          label: ["USA"],
+          backgroundColor: "rgba(60,186,159,0.2)",
+          borderColor: "rgba(60,186,159,1)",
+          data: [{
+            x: 21678,
+            y: 2.9,
+            r: 100
+          }]
+        }, 
+        {
+          label: ["Mexico"],
+          backgroundColor: "rgba(202,111,30,0.2)",
+          borderColor: "rgba(202,111,30,1)",
+          data: [{
+            x: 5536,
+            y: 10.5,
+            r: 9.96
+          }]
+        }, 
+        {
+          label: ["UK"],
+          backgroundColor: "rgba(88,214,141,0.2)",
+          borderColor: "rgba(88,214,141,1)",
+          data: [{
+            x: 6126,
+            y: 10.1,
+            r: 5.79
+          }]
+        }, 
+        {
+          label: ["Canada"],
+          backgroundColor: "rgba(195,155,211,0.2)",
+          borderColor: "rgba(195,155,211,1)",
+          data: [{
+            x: 3942,
+            y: 6.2,
+            r: 2.07
+          }]
+        }, 
+        {
+          label: ["Russia"],
+          backgroundColor: "rgba(193,46,12,0.2)",
+          borderColor: "rgba(193,46,12,1)",
+          data: [{
+            x: 7734,
+            y: 1.8,
+            r: 15.71
+          }]
+        }, 
+        {
+          label: ["India"],
+          backgroundColor: "rgba(229,231,233,0.2)",
+          borderColor: "rgba(229,231,233,1)",
+          data: [{
+            x: 4207,
+            y: 1.6,
+            r: 80.98
+          }]
+        }, 
+        {
+          label: ["Brazil"],
+          backgroundColor: "rgba(245,183,177,0.2)",
+          borderColor: "rgba(245,183,177,1)",
+          data: [{
+            x: 21886,
+            y: 3.0,
+            r: 64.85
+          }]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'The size of circle indicates the relative number of patients (USA=100)'
+        }, scales: {
+            yAxes: [{ 
+              ticks: {
+                    fontColor: '#888'
+                    },
+            scaleLabel: {
+              display: true,
+              labelString: "Fatality rates (%)"
+            }
+            }],
+            xAxes: [{ 
+              ticks: {
+                    fontColor: '#888'
+                    },
+            scaleLabel: {
+              display: true,
+              labelString: "Cases / 1M Pop"
+            }
+            }]
+        }
+    }
+  });
+
+</script>
+
+</body>
+</html>

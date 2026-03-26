@@ -1,0 +1,219 @@
+<!-- MDIA 2294 Web Script -->
+<!-- Final Project: JavaScript and jQery -->
+
+<!-- Third party control -->
+<!-- Pagescrolling: https://alvarotrigo.com/pagePiling -->
+<!-- Chart: https://www.chartjs.org -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })
+    (window,document,'script','dataLayer','GTM-KLS7RSJ');
+    </script>
+    
+	<title>MDIA 2294 :: John Seo</title>
+
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<link rel="stylesheet" type="text/css" href="css/global.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.pagepiling.min.js"></script>
+	<!-- This is to invoke page scroll function -->
+	<script type="text/javascript">
+		var deleteLog = false;
+
+		$(document).ready(function() {
+	    	$('#pagepiling').pagepiling({
+	    		menu: '#menu',
+	    		anchors: ['page1', 'page2', 'page3'],
+			    sectionsColor: ['#02594c', '#601a36', '#2C3E50'],
+			    loopTop: true,
+			    loopBottom: true
+			});
+	    });
+    </script>
+</head>
+
+<body>
+	<!-- This is a aticky navbar -->
+	<ul id="menu2">
+		<li id="title"> <a href="index.html">MDIA 2294 :: John Seo</a></li>
+		<div id="right">
+		<li class="active"><a href="index.html">JavaScripting Concepts</a></li>
+		<li><a href="page2.html">jQuery Concepts</a></li>
+		<li><a href="page3.html">jQuery Example</a></li>
+	</div>
+	</ul>
+
+	<div id="pagepiling">
+
+		<!-- Section 1 -->
+	    <div class="section" id="section1">
+	    	<h5 class="top"><a class="arrow" href="#page3">&and;</a></h5>
+	    	<h1>Variables</h1>
+	    	<h2>What are variable types, declarations and scope?</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item1">
+					<span class="important"> Variable </span> is like a bowl that can contain a certain value. The bowl itself does not do anything, but it takes a role as a means to keep a data value. The way to keep data is called ‘Declaration’, and it is declared with the equals sign and a given name(identifier). <br><br>
+					Depending on where the variable is declared, it can be <span class="important"> ‘Block’ </span> type when it is set within a block with ‘let’, or <span class="important">‘Local’</span> when it is declared within a function, otherwise the scope is <span class="important">‘Global’</span>, out of a function. However, in a ‘Global’ case, it should have a reason to use as a whole page. <br><br>
+					Overall, variable simplifies complex calculations to avoid writing long and complex statements multiple times. 
+					</div>
+					<div class="grid-item item1">
+					There are 3 types: var, let and const. ‘var’ is a general type of variable and the same ‘var’ can be used multiple times, in this case the last value will be stored. ‘let’ is usually used locally within a block statement and the same ‘let’ can’t be used multiple times. The read-only variable is ‘const’.
+						<!-- This is a hand made code viewer -->
+						<div class="code code1">
+							<span class="blue">const </span>
+							<span class="black">x </span>
+							<span class="black">= </span>
+							<span class="red">1</span>
+							<span class="black">; </span>
+							<br>
+							<span class="blue">var </span>
+							<span class="black">y </span>
+							<span class="black">= </span>
+							<span class="red">2</span>
+							<span class="black">; </span>
+							<br>
+							<span class="green">// Here x is 1, y is 2 </span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;{ </span>
+							<br>
+							<span class="blue">&nbsp;&nbsp;&nbsp;let </span>
+							<span class="black">y </span>
+							<span class="black">= </span>
+							<span class="red">3</span>
+							<span class="black">; </span>
+							<br>
+							<span class="green">&nbsp;&nbsp;&nbsp;// Here x is 1, y is 3 </span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;} </span>
+							<br>
+							<span class="green">// Here x is 1, y is 2 </span>
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page2">&or;</a></h5>
+	    </div>
+
+	    <!-- Section 2 -->
+	    <div class="section" id="section2">
+	    	<div class="intro">
+	    	<h5 class="top"><a class="arrow" href="#page1">&and;</a></h5>
+	    	<h1>Functions</h1>
+	    	<h2>What are variable types, declarations and scope?</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item2">
+					When we learn a language, knowing a number of vocabulary is important,  but the key is to make a sentence in conjunction with the vocabularies. <span class="important"> Likewise, making ‘Function’ by using variable, operator and data is where we call it a programming.</span> Function parameters are listed inside the parentheses () in the function definition. The value is returned when it is stated as ‘return’ within a function. With the value returned, it can be used to another function.
+					</div>
+					<div class="grid-item item2">
+						<!-- This is a hand made code viewer -->
+						<div class="code code2">
+							<span class="black">document.getElementById(</span>
+							<span class="purple">"demo"</span>
+							<span class="black">).innerHTML =</span>
+							<br>
+							<span class="purple">"The temperature is"&nbsp;
+							<span class="black">+ toCelsius(</span>
+							<span class="red">77</span>
+							<span class="black">) +&nbsp;</span>
+							<span class="purple">"Celsius"</span>
+							<span class="black">;</span>
+							<br>
+							<br>
+							<span class="blue">function&nbsp;</span>
+							<span class="black">toCelsius(fahrenheit) </span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;{</span>
+							<br>
+							<span class="blue">&nbsp;&nbsp;&nbsp;return</span>
+							<span class="black">(</span>
+							<span class="red">5</span>
+							<span class="black">/</span>
+							<span class="red">9</span>
+							<span class="black">*(fahrenheit-</span>
+							<span class="red">32</span>
+							<span class="black">);</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;}</span>
+							<br>
+							<br>
+							<span class="green">//The temperature is 24 Celcius</span>
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page3">&or;</a></h5>
+	    	</div>
+	    </div>
+
+	    <!-- Section 3 -->
+	    <div class="section" id="section3">
+	    	<div class="intro">
+	    	<h5 class="top"><a class="arrow" href="#page2">&and;</a></h5>
+	    	<h1>Conditions</h1>
+	    	<h2>What are the conditional structures in JS and how might you use them?</h2><br><hr>
+	    		<div class="grid">
+	    			<div class="grid-item item1">
+					When we need to make a decision, conditional structure is used under the certain condition. A simple approach is to use a conditional operator, also known as a ternary operator as it takes three operands. However, it is more common to use if statement for complex calculations. This is very useful in many cases as it calculates the number of different cases and outputs the appropriate value. For example, it returns grades based on student performances, it returns the amount due based on the items in the shopping cart. <br><br>
+					There are 3 different ways to express: <span class="important">‘If statement’</span>, <span class="important">‘If else statement’</span> and <span class="important">‘else if statement’</span>. ‘If statement’ does not care of a single condition whereas ‘If else statement’ considers when this condition is both true and false. As for ’else if statement’, 1 or more conditions are nested to initial statement.
+
+					</div>
+					<div class="grid-item item1">
+					If time is less than 10:00, create a "Good morning" greeting, if not, but time is less than 20:00, create a "Good day" greeting, otherwise a "Good evening":
+						<!-- This is a hand made code viewer -->
+						<div class="code code3">
+							<span class="blue">if&nbsp; </span>
+							<span class="black">(time <&nbsp; </span>
+							<span class="red">10 </span>
+							<span class="black">) {</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;greeting =&nbsp; </span>
+							<span class="purple">"Good morning"</span>
+							<span class="black">;</span>
+							<br>
+							<span class="black">}&nbsp;</span>
+							<span class="blue">else if&nbsp; </span>
+							<span class="black">(time <&nbsp; </span>
+							<span class="red">20</span>
+							<span class="black">) {</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;greeting =&nbsp; </span>
+							<span class="purple">"Good day"</span>
+							<span class="black">;</span>
+							<br>
+							<span class="black">}&nbsp;</span>
+							<span class="blue">else&nbsp; </span>
+							<span class="black">{</span>
+							<br>
+							<span class="black">&nbsp;&nbsp;&nbsp;greeting =&nbsp; </span>
+							<span class="purple">"Good evening"</span>
+							<span class="black">;</span>
+							<br>
+							<span class="black">} </span>
+						</div>
+						<span class="cite"> Example from w3schools.com </span>
+					</div>
+				</div>
+				<h5 class="bottom"><a class="arrow" href="#page1">&or;</a></h5>
+	    	</div>
+	    </div>
+
+	</div>
+
+</body>
+</html>

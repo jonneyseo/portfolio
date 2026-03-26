@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+
+    <title>MDIA 1472 :: John Seo</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/nav-bar.css" rel="stylesheet">
+	</head>
+
+	<body onload="setSlides(0);">
+	
+    <div class="container">
+    <nav>
+    <a href="index.html"><span class="title"> Fresh Picks </span></a>
+
+      <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+          <div class="dropdown">
+            <button class="dropbtn">Product&nbsp;&or;
+              <i class="fa fa-caret-down"></i>
+            </button>
+              <div class="dropdown-content">
+                <a href="product-apple.html">Apple</a>
+                <a href="product-banana.html">Banana</a>
+                <a href="product-orange.html">Orange</a>
+              </div>
+          </div> 
+        <a href="contactus.html">Contact Us</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><span class="hamburger">&#9776;</span></a>
+      </div>
+
+    </nav>
+    </div>
+
+
+    <div class="page-product page-product-banana">
+
+    <div class="container">
+
+      <div class="product-header">
+      <p class="product-path">Home &nbsp;&gt;&nbsp;Product &nbsp;&gt;&nbsp; Caribbean Banana </p>
+      <p class="product-title">Caribbean Banana</p>
+    </div>
+      
+    </div>
+  
+  </div>
+
+    <div class="page-product-content container">
+
+      <div class="page-product-col page-product-col-1">
+        <div class="imgmain"><img id="imgMain" /></div> 
+        <div class="imgthumb" id="divThumbArea"></div>
+      </div>
+
+      <div class="page-product-col page-product-col-2">
+        <h1 class="product"> Caribbean Banana </h1>
+        <p class="product-rate">
+          <span class="green-bold">4.0</span>
+          <span class="green"> &nbsp;&#9733;&#9733;&#9733;&#9733;&#9734;&nbsp;&nbsp; </span>
+          <span class="black-bold"> 150 </span>
+          <span class="gray">Rating&nbsp;&nbsp;</span>
+          <span class="black-bold">450</span>
+          <span class="gray">Sold</span>
+        </p>
+        <p class="product-price">
+          <span class="price"> $14.90 </span>
+          <span class="gray"> &nbsp;/ 20lbs.</span>
+        <p class="product-explain">Every week we harvest many different kinds of bananas from a banana database that grows over 100 different varieties. When you pre-order a box, your name is added to the list and your order will be fulfilled when the bananas become available.<br>
+        Our banana is a favorite of many banana lovers. They are commonly known for their delicious 'sweettart' candy flavor. It's easy to eat more than one of these cute baby bananas. </p>
+
+        <div class="product-form">
+          <select id="banana" name="banana">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          
+          <div id="input_div">
+            <input type="button" value="-" id="minus" onclick="minus()">
+            <input type="text" size="5" value="1" id="count">
+            <input type="button" value="+" id="plus" onclick="plus()">
+          </div>
+          <span class="black-bold"> 850 kg available </span>
+          <br>
+          <input type="button" id="order" name="order" value="Add To Cart">
+        </div>
+      </div>
+    
+    </div>
+
+
+    <footer>
+    <div class="footer-background">
+      <div class="container">
+        <div class="footer-parent">
+          <div class="footer-col footer-col-1">
+            <h1 class="title"> Fresh Picks </h1>
+            <p class="footer-title"> Meet the freshest Morning. Feel the sincerity of the farmers. We offer fresh fruits chosen by farming experts with over 30 years of know-how. It’s trustworthy.</p>
+            <h5 class="footer"> Our Newsletter </h5>
+            <p class="footer"> Subscribe to our email newsletter today to receive updates on the latest special offers! </p>
+            <form>
+              <input type="text" id="email" name="email" placeholder="Enter email">
+              <input type="submit" id="button" value="Subscribe">
+            </form>
+          </div>
+          <div class="footer-col footer-col-2">
+            <h5 class="footer"> Sitemap </h5>
+            <a href="index.html"><p class="footer-title"> Home </p></a>
+            <a href="aboutus.html"><p class="footer-title"> About Us </p></a>
+            <a href="product-apple.html"><p class="footer-title"> Product </p></a>
+            <a href="contactus.html"><p class="footer-title"> Contact Us </p></a>
+            <h5 class="footer"> Contact Us </h5>
+            <p class="footer"> 555 Seymour Street<br>Vancouver, BC V5G3H2<br>Canada</p>
+            <p class="footer"> <span class="bold">Phone:&nbsp; </span>+1 604 434 5734 <br><span class="bold">Email:&nbsp; </span>info@freshpicks.ca </p>
+            <a href="https://www.twitter.com" target="_blank"><img src=img/twitter_footer.png></a>
+            <a href="https://www.facebook.com" target="_blank"><img src=img/facebook_footer.png></a>
+            <a href="https://www.instagram.com" target="_blank"><img src=img/instagram_footer.png></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src=img/linkedin_footer.png></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p> &copy;Copyright <span class="copyright">JOHN SEO</span>, BCIT. All Rights Reserved </p>
+    </div>
+
+    </footer>
+
+
+
+  <script src="js/nav-bar.js"></script>
+  <script src="js/num-count.js"></script>
+  <script src="js/product-gallery-banana.js"></script>
+
+	</body>
+
+</html>
