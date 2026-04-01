@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>서정환 — 이력서</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4;
+  margin: 0.55in 0.65in;
+}
+
+body {
+  font-family: 'Noto Sans KR', system-ui, sans-serif;
+  color: #2C1F14;
+  font-size: 9pt;
+  line-height: 1.6;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@media screen {
+  body {
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 32px auto;
+    padding: 0.55in 0.65in;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+  }
+}
+
+/* ── Header ─────────────────────────────── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 9pt;
+  margin-bottom: 12pt;
+  border-bottom: 1.5pt solid #2C1F14;
+}
+.name {
+  font-family: 'Noto Serif KR', Georgia, serif;
+  font-size: 28pt;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+.name em { font-style: normal; color: #B85C38; }
+.tagline {
+  font-size: 7.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9B8A78;
+  margin-top: 5pt;
+}
+.contact {
+  text-align: right;
+  font-size: 8pt;
+  color: #6B5A4A;
+  line-height: 1.75;
+}
+.contact a { color: #B85C38; text-decoration: none; }
+
+/* ── Body grid ──────────────────────────── */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 190pt;
+  gap: 18pt;
+}
+
+/* ── Section ────────────────────────────── */
+.section { margin-bottom: 12pt; }
+.section:last-child { margin-bottom: 0; }
+.sec-title {
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #B85C38;
+  font-weight: 500;
+  padding-bottom: 3pt;
+  margin-bottom: 7pt;
+  border-bottom: 0.75pt solid #EDE8DF;
+}
+
+/* ── Experience ─────────────────────────── */
+.exp { margin-bottom: 8pt; }
+.exp:last-child { margin-bottom: 0; }
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.exp-co {
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: #2C1F14;
+}
+.exp-date {
+  font-size: 7.5pt;
+  color: #9B8A78;
+  flex-shrink: 0;
+  margin-left: 6pt;
+}
+.exp-role {
+  font-size: 8pt;
+  color: #B85C38;
+  font-style: normal;
+  margin-bottom: 3pt;
+}
+.bullets { list-style: none; padding: 0; }
+.bullets li {
+  font-size: 8.5pt;
+  color: #4A3728;
+  line-height: 1.55;
+  padding-left: 9pt;
+  margin-bottom: 1.5pt;
+  position: relative;
+}
+.bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: #B85C38;
+}
+
+/* ── Right column ───────────────────────── */
+.profile-text {
+  font-size: 8.5pt;
+  color: #4A3728;
+  line-height: 1.7;
+}
+
+.edu { margin-bottom: 7pt; }
+.edu:last-child { margin-bottom: 0; }
+.edu-school { font-size: 9pt; font-weight: 500; }
+.edu-degree { font-size: 8pt; color: #6B5A4A; line-height: 1.4; }
+.edu-date { font-size: 7.5pt; color: #9B8A78; margin-top: 1pt; }
+
+.skill-row { margin-bottom: 5pt; }
+.skill-row:last-child { margin-bottom: 0; }
+.skill-cat {
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8B7355;
+  margin-bottom: 1.5pt;
+}
+.skill-val { font-size: 8pt; color: #4A3728; line-height: 1.5; }
+
+.highlight { margin-bottom: 6pt; }
+.highlight:last-child { margin-bottom: 0; }
+.hl-name { font-size: 8.5pt; font-weight: 500; color: #2C1F14; }
+.hl-impact { font-size: 7.5pt; color: #B85C38; margin-top: 0.5pt; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div>
+    <div class="name"><em>서</em>정환</div>
+    <div class="tagline">Marketing · Design · Engineering</div>
+  </div>
+  <div class="contact">
+    Burnaby, BC · Canada<br>
+    jonneyseo@gmail.com
+  </div>
+</div>
+
+<!-- Body -->
+<div class="body">
+
+  <!-- Left: Experience -->
+  <div>
+    <div class="section">
+      <div class="sec-title">Experience</div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div class="exp-co">PayShepherd</div>
+          <div class="exp-date">2022.05 – 2026.01</div>
+        </div>
+        <div class="exp-role">Software Engineer, Full-Stack · Calgary, AB (Remote)</div>
+        <ul class="bullets">
+          <li>북미 산업 현장의 원·하청 간 인보이싱 프로세스를 디지털화하는 B2B SaaS 스타트업. 3년 8개월간 제품 성장 전 단계(Build → Stabilize → Scale)를 경험하며 기능 개발, 운영 최적화, 아키텍처 현대화를 주도했습니다.</li>
+          <li>Claude Sonnet 기반 AI 인보이스 이상치 분석 파이프라인(3PIA) 설계·제안, 전사 공모에서 채택되어 서비스 런칭 — 3개월 내 $80K+ 잘못 청구 금액 세이빙.</li>
+          <li>LEMs Aggregation 모듈(다이나믹 멀티벤더 청구 대시보드) 단독 구현 — 런칭 30일 내 기존 모듈 트래픽의 50% 달성. 사내 Bug Bounty 8명 중 1위(27건).</li>
+          <li>BI 스택 Looker → AWS QuickSight 마이그레이션(200+ 리포트, 12 클라이언트, 40일). Git 브랜치 아키텍처 재설계: 8클라이언트 20브랜치 → 14클라이언트 3브랜치.</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div class="exp-co">Digital Creator</div>
+          <div class="exp-date">2022 – 2024</div>
+        </div>
+        <div class="exp-role">프리랜서 · 디지털 디자인 & 콘텐츠 · Vancouver, BC</div>
+        <ul class="bullets">
+          <li>풀타임 엔지니어링과 병행하여 밴쿠버 지역 소상공인을 위한 웹사이트, 브랜드 아이덴티티, 디지털 콘텐츠를 제작했습니다.</li>
+          <li>주요 클라이언트: Bionelife (건강 보조제 브랜드 — 웹사이트 구축, 라벨 디자인, 콘텐츠), 그린라이트 장학회 (한인 비영리 단체 — 포스터 시리즈, 비주얼 가이드), 캐나다 햇비마켓 (이커머스 운영 및 디지털 콘텐츠).</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div class="exp-co">SplitMango Inc.</div>
+          <div class="exp-date">2021.01 – 2022.05</div>
+        </div>
+        <div class="exp-role">Web Developer & UI/UX Designer · North Vancouver, BC</div>
+        <ul class="bullets">
+          <li>Figma 디자인부터 WordPress, Statamic, Shopify 기반 배포까지 10개 이상의 신규 프로젝트, 30개 이상의 클라이언트 유지보수를 단독으로 담당했습니다.</li>
+          <li>디자인·개발 복합 역량으로 채용. 레스토랑, 건축사무소, 비영리단체, 이커머스 등 다양한 업종 클라이언트를 전담했습니다.</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div class="exp-co">LG전자 · TV 해외영업 In-store Marketing</div>
+          <div class="exp-date">2015.01 – 2019.05</div>
+        </div>
+        <div class="exp-role">대리·선임 · 서울 본사</div>
+        <ul class="bullets">
+          <li>글로벌 52개 법인 150여 개국 LG TV 매장 전시 전략 총괄 — 전시 가이드라인, POP 자재, 피처 디자인 및 시장별 현지화.</li>
+          <li>AI TV 데모 키트 기획·제작 (음성인식 20개 시나리오 + 체험 기기) — 15개국 약 3,000개 매장 전파. 13개국 이상 현지 영업팀 트레이닝 출장.</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-top">
+          <div class="exp-co">LG전자 · OLED TV 사업전략 Task</div>
+          <div class="exp-date">2013.01 – 2014.12</div>
+        </div>
+        <div class="exp-role">사원 · 서울 본사</div>
+        <ul class="bullets">
+          <li>세계 최초 OLED TV 출시를 주도한 사업전략 Task 인턴 전환형 채용. C-Level 전략 보고 준비, 글로벌 물량 배분, 미국 법인 슈퍼볼 광고 캠페인 지원.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Right column -->
+  <div>
+
+    <div class="section">
+      <div class="sec-title">Profile</div>
+      <div class="profile-text">마케팅·디자인·엔지니어링 12년. 마케터의 안목으로 올바른 문제를 정의하고, 디자이너의 감각으로 올바른 경험을 설계하며, 엔지니어의 실행력으로 만들고 개선합니다. 150여 개국에 마케팅 자산을 전달했고, 북미 산업 현장에서 신뢰받는 SaaS 제품을 직접 구축했습니다.</div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Education</div>
+      <div class="edu">
+        <div class="edu-school">BCIT (British Columbia Institute of Technology)</div>
+        <div class="edu-degree">New Media Design & Web Development<br>Diploma with Distinction (우등 졸업)</div>
+      </div>
+      <div class="edu">
+        <div class="edu-school">아주대학교</div>
+        <div class="edu-degree">e-비즈니스학부 · 경영학 복수전공</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Skills</div>
+      <div class="skill-row">
+        <div class="skill-cat">Frontend</div>
+        <div class="skill-val">JavaScript (ES6), HTML / CSS, Tailwind CSS, jQuery</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Backend & Data</div>
+        <div class="skill-val">PHP 8.0, MySQL 8.0, REST API, ETL Pipeline, RabbitMQ</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Cloud & DevOps</div>
+        <div class="skill-val">AWS EC2 / S3 / QuickSight, Docker, Git, Jira / Confluence</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-cat">Design & CMS</div>
+        <div class="skill-val">Figma, Adobe Creative Suite, WordPress, Shopify, Statamic</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-title">Key Highlights</div>
+      <div class="highlight">
+        <div class="hl-name">3PIA — AI 인보이스 이상치 분석</div>
+        <div class="hl-impact">$80K+ 세이빙 · 런칭 후 3개월</div>
+      </div>
+      <div class="highlight">
+        <div class="hl-name">LEMs Aggregation 모듈</div>
+        <div class="hl-impact">기존 트래픽 50% · 런칭 후 30일</div>
+      </div>
+      <div class="highlight">
+        <div class="hl-name">BI 마이그레이션 (Looker → QuickSight)</div>
+        <div class="hl-impact">200+ 리포트 · 12 클라이언트 · 40일</div>
+      </div>
+      <div class="highlight">
+        <div class="hl-name">LG AI TV 데모 키트</div>
+        <div class="hl-impact">약 3,000개 매장 · 15개국</div>
+      </div>
+      <div class="highlight">
+        <div class="hl-name">브랜치 아키텍처 재설계</div>
+        <div class="hl-impact">20브랜치 → 3 · 8클라이언트 → 14</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
