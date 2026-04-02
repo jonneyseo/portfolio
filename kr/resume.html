@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>서정환 — 이력서</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 @page {
   size: A4;
-  margin: 0.55in 0.65in;
+  margin: 0.55in 0.6in;
 }
 
 body {
-  font-family: 'Noto Sans KR', system-ui, sans-serif;
-  color: #2C1F14;
-  font-size: 9pt;
-  line-height: 1.6;
+  font-family: 'Noto Sans KR', '맑은 고딕', system-ui, sans-serif;
+  color: #1a1a1a;
+  font-size: 8.5pt;
+  line-height: 1.5;
   background: #fff;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
@@ -27,287 +27,297 @@ body {
     max-width: 210mm;
     min-height: 297mm;
     margin: 32px auto;
-    padding: 0.55in 0.65in;
+    padding: 0.55in 0.6in;
     box-shadow: 0 4px 32px rgba(0,0,0,0.12);
   }
 }
 
-/* ── Header ─────────────────────────────── */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: 9pt;
-  margin-bottom: 12pt;
-  border-bottom: 1.5pt solid #2C1F14;
-}
-.name {
-  font-family: 'Noto Serif KR', Georgia, serif;
-  font-size: 28pt;
+/* ── Title ──────────────────────────────── */
+.resume-title {
+  text-align: center;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20pt;
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.05em;
-}
-.name em { font-style: normal; color: #B85C38; }
-.tagline {
-  font-size: 7.5pt;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #9B8A78;
-  margin-top: 5pt;
-}
-.contact {
-  text-align: right;
-  font-size: 8pt;
-  color: #6B5A4A;
-  line-height: 1.75;
-}
-.contact a { color: #B85C38; text-decoration: none; }
-
-/* ── Body grid ──────────────────────────── */
-.body {
-  display: grid;
-  grid-template-columns: 1fr 190pt;
-  gap: 18pt;
+  letter-spacing: 0.5em;
+  color: #1a1a1a;
+  padding-bottom: 8pt;
+  margin-bottom: 11pt;
+  border-bottom: 2pt solid #1a1a1a;
 }
 
-/* ── Section ────────────────────────────── */
-.section { margin-bottom: 12pt; }
-.section:last-child { margin-bottom: 0; }
-.sec-title {
-  font-size: 7pt;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #B85C38;
-  font-weight: 500;
-  padding-bottom: 3pt;
-  margin-bottom: 7pt;
-  border-bottom: 0.75pt solid #EDE8DF;
-}
-
-/* ── Experience ─────────────────────────── */
-.exp { margin-bottom: 8pt; }
-.exp:last-child { margin-bottom: 0; }
-.exp-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-.exp-co {
-  font-size: 9.5pt;
-  font-weight: 500;
-  color: #2C1F14;
-}
-.exp-date {
-  font-size: 7.5pt;
-  color: #9B8A78;
-  flex-shrink: 0;
-  margin-left: 6pt;
-}
-.exp-role {
-  font-size: 8pt;
-  color: #B85C38;
-  font-style: normal;
-  margin-bottom: 3pt;
-}
-.bullets { list-style: none; padding: 0; }
-.bullets li {
+/* ── Section Header ─────────────────────── */
+.sec-header {
   font-size: 8.5pt;
-  color: #4A3728;
-  line-height: 1.55;
-  padding-left: 9pt;
-  margin-bottom: 1.5pt;
-  position: relative;
-}
-.bullets li::before {
-  content: '–';
-  position: absolute;
-  left: 0;
-  color: #B85C38;
-}
-
-/* ── Right column ───────────────────────── */
-.profile-text {
-  font-size: 8.5pt;
-  color: #4A3728;
-  line-height: 1.7;
-}
-
-.edu { margin-bottom: 7pt; }
-.edu:last-child { margin-bottom: 0; }
-.edu-school { font-size: 9pt; font-weight: 500; }
-.edu-degree { font-size: 8pt; color: #6B5A4A; line-height: 1.4; }
-.edu-date { font-size: 7.5pt; color: #9B8A78; margin-top: 1pt; }
-
-.skill-row { margin-bottom: 5pt; }
-.skill-row:last-child { margin-bottom: 0; }
-.skill-cat {
-  font-size: 7pt;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #8B7355;
-  margin-bottom: 1.5pt;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 3.5pt 8pt;
+  margin-bottom: 0;
 }
-.skill-val { font-size: 8pt; color: #4A3728; line-height: 1.5; }
 
-.highlight { margin-bottom: 6pt; }
-.highlight:last-child { margin-bottom: 0; }
-.hl-name { font-size: 8.5pt; font-weight: 500; color: #2C1F14; }
-.hl-impact { font-size: 7.5pt; color: #B85C38; margin-top: 0.5pt; }
+/* ── Table base ─────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10pt;
+}
+
+th, td {
+  border: 0.75pt solid #aaa;
+  padding: 4pt 6pt;
+  font-size: 8pt;
+  vertical-align: middle;
+}
+
+th {
+  background: #f2f2f2;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+}
+
+td { color: #1a1a1a; }
+
+/* ── 인적사항 ──────────────────────────── */
+.personal-wrap {
+  display: flex;
+  gap: 0;
+  margin-bottom: 10pt;
+  border: 0.75pt solid #aaa;
+}
+.personal-table-wrap { flex: 1; }
+.personal-table-wrap table {
+  margin-bottom: 0;
+  border: none;
+}
+.personal-table-wrap table th { width: 18%; }
+.personal-table-wrap table th,
+.personal-table-wrap table td {
+  border-top: none;
+  border-left: none;
+}
+.personal-table-wrap table tr:last-child th,
+.personal-table-wrap table tr:last-child td {
+  border-bottom: none;
+}
+.personal-table-wrap table td:last-child {
+  border-right: none;
+}
+
+.photo-cell {
+  width: 68pt;
+  flex-shrink: 0;
+  border-left: 0.75pt solid #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+}
+.photo-cell img {
+  width: 58pt;
+  height: 75pt;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── 경력사항 ───────────────────────────── */
+.career-table col.col-period  { width: 15%; }
+.career-table col.col-company { width: 40%; }
+.career-table col.col-role    { width: 45%; }
+
+.career-table tbody tr.career-row td {
+  padding-top: 7pt;
+  padding-bottom: 7pt;
+  border-top: 1.5pt solid #555;
+}
+.career-table tbody tr.career-row:first-of-type td {
+  border-top: 0.75pt solid #aaa;
+}
+.career-company {
+  font-size: 9pt;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.career-loc {
+  font-size: 7.5pt;
+  color: #777;
+  margin-top: 1pt;
+}
+.career-role {
+  font-size: 8pt;
+  color: #444;
+}
+.career-desc td {
+  font-size: 7.5pt;
+  color: #555;
+  line-height: 1.7;
+  padding: 4pt 8pt 7pt;
+  background: #fafafa;
+  border-top: none;
+}
+
+/* ── 학력 ───────────────────────────────── */
+.edu-table col.col-period  { width: 13%; }
+.edu-table col.col-school  { width: 35%; }
+.edu-table col.col-major   { width: 34%; }
+.edu-table col.col-degree  { width: 9%; }
+.edu-table col.col-note    { width: 9%; }
+
+/* ── 자격/어학 ─────────────────────────── */
+.cert-table th { width: 14%; }
+
+/* ── 지원동기 ───────────────────────────── */
+.intro-box {
+  border: 0.75pt solid #aaa;
+  padding: 7pt 9pt;
+  font-size: 8pt;
+  line-height: 1.8;
+  color: #1a1a1a;
+  margin-bottom: 0;
+}
+.intro-box p { margin-bottom: 5pt; }
+.intro-box p:last-child { margin-bottom: 0; }
+
+.highlight-val { font-weight: 500; }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<div class="header">
-  <div>
-    <div class="name"><em>서</em>정환</div>
-    <div class="tagline">Web · Commerce · Service Planner</div>
+<div class="resume-title">이 력 서</div>
+
+<!-- ① 인적사항 -->
+<div class="sec-header">인 적 사 항</div>
+<div class="personal-wrap">
+  <div class="personal-table-wrap">
+    <table>
+      <tr>
+        <th>성 명</th>
+        <td class="highlight-val">서 정 환</td>
+        <th>생년월일</th>
+        <td>1987. 06. 19</td>
+      </tr>
+      <tr>
+        <th>주 소</th>
+        <td colspan="3">경기도 화성시 만세구 행정서로 48, 305동 902호</td>
+      </tr>
+      <tr>
+        <th>연 락 처</th>
+        <td>010-5378-9340</td>
+        <th>이 메 일</th>
+        <td>sonicegoal@gmail.com</td>
+      </tr>
+      <tr>
+        <th>포트폴리오</th>
+        <td colspan="3">jonneyseo.github.io/kr</td>
+      </tr>
+    </table>
   </div>
-  <div class="contact">
-    Burnaby, BC · Canada<br>
-    jonneyseo@gmail.com
+  <div class="photo-cell">
+    <img src="../img/profile.jpg" alt="서정환 증명사진">
   </div>
 </div>
 
-<!-- Body -->
-<div class="body">
+<!-- ② 학력사항 -->
+<div class="sec-header">학 력 사 항</div>
+<table class="edu-table">
+  <colgroup>
+    <col class="col-period"><col class="col-school"><col class="col-major"><col class="col-degree"><col class="col-note">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>기간</th>
+      <th>학교명</th>
+      <th>전공</th>
+      <th>학위</th>
+      <th>학점</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="white-space:nowrap">2019.09 – 2021.03</td>
+      <td>British Columbia Institute of Technology</td>
+      <td>New Media Design &amp; Web Development</td>
+      <td style="text-align:center">Diploma</td>
+      <td style="text-align:center">89/100</td>
+    </tr>
+    <tr>
+      <td style="white-space:nowrap">2006.03 – 2013.02</td>
+      <td>아주대학교</td>
+      <td>e-비즈니스학 / 경영학 복수전공</td>
+      <td style="text-align:center">학사</td>
+      <td style="text-align:center">3.77/4.5</td>
+    </tr>
+  </tbody>
+</table>
 
-  <!-- Left: Experience -->
-  <div>
-    <div class="section">
-      <div class="sec-title">Experience</div>
+<!-- ③ 경력사항 -->
+<div class="sec-header">경 력 사 항</div>
+<table class="career-table">
+  <colgroup>
+    <col class="col-period"><col class="col-company"><col class="col-role">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>근무기간</th>
+      <th>회사명</th>
+      <th>직위 / 직책</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="career-row">
+      <td style="white-space:nowrap;text-align:center">2022.05 – 2026.01</td>
+      <td><div class="career-company">PayShepherd</div><div class="career-loc">캘거리, 캐나다 (원격 근무)</div></td>
+      <td class="career-role">Software Engineer II</td>
+    </tr>
+    <tr class="career-desc">
+      <td colspan="3">북미 산업 현장의 원·하청 간 인보이싱 프로세스를 디지털화하는 B2B SaaS 스타트업의 개발자로서 프론트엔드로 시작해서 풀스택으로 성장하며, 기능 개발, 시스템 최적화, 아키텍처 현대화까지 제품 전 주기(Build → Stabilize → Scale)를 경험. UX Flow 설계, 백오피스 기획 및 구현에도 참여. LEMs Aggregation 모듈 런칭 30일 내 기존 트래픽 50% 달성, 3PIA AI 인보이스 분석 서비스 기획·론칭으로 3개월 내 $80K+ 임팩트 실현. AWS QuickSight 기반 BI 체계 구축.</td>
+    </tr>
+    <tr class="career-row">
+      <td style="white-space:nowrap;text-align:center">2021.01 – 2022.05</td>
+      <td><div class="career-company">SplitMango Inc.</div><div class="career-loc">노스 밴쿠버, 캐나다</div></td>
+      <td class="career-role">Web Service Planner & Developer · UI/UX Designer</td>
+    </tr>
+    <tr class="career-desc">
+      <td colspan="3">웹 에이전시 소속 기획·개발·디자이너로서 클라이언트 요구사항 분석 → IA 설계 → UX Flow 기획 → Shopify·WordPress·Statamic 구현까지 서비스 기획 전 과정 단독 수행. 신규 프로젝트 10개 이상, 클라이언트 계정 30개 이상 운영 (커머스·레스토랑·건축·비영리 다업종).</td>
+    </tr>
+    <tr class="career-row">
+      <td style="white-space:nowrap;text-align:center">2013.01 – 2019.05</td>
+      <td><div class="career-company">LG전자 · TV 해외영업마케팅</div><div class="career-loc">서울, 대한민국</div></td>
+      <td class="career-role">선임</td>
+    </tr>
+    <tr class="career-desc">
+      <td colspan="3">글로벌 52개 법인·150여 개국 대상 TV In-store 디스플레이 전략·운영 총괄. OLED TV 및 AI TV 등 프리미엄 제품군의 매장 내 사용자 경험 서비스 기획 (시나리오 20개) — 15개국 약 3,000개 매장 동시 운영, 중동·아프리카 위주 13개국 이상 현지 교육 및 전파.</td>
+    </tr>
+  </tbody>
+</table>
 
-      <div class="exp">
-        <div class="exp-top">
-          <div class="exp-co">PayShepherd</div>
-          <div class="exp-date">2022.05 – 2026.01</div>
-        </div>
-        <div class="exp-role">Service Planner & Full-Stack Engineer · Calgary, AB (Remote)</div>
-        <ul class="bullets">
-          <li>복잡한 원·하청 간 청구 프로세스를 디지털 서비스로 기획·구현. 비즈니스 요구사항 분석 → 사용자 Flow 설계 → 백오피스 기획 → 구현 → 데이터 기반 개선의 전 주기를 담당했습니다.</li>
-          <li>LEMs Aggregation: 다수 프로젝트·날짜·벤더 조회 백오피스 UX 설계·구현 — 런칭 30일 내 기존 트래픽의 50% 달성.</li>
-          <li>3PIA: 비즈니스 문제 정의 → AI 서비스 컨셉 기획 → 전사 제안 채택 → 서비스 론칭 — 3개월 내 $80K+ 비즈니스 임팩트 실현.</li>
-          <li>AWS QuickSight 기반 데이터 분석 체계 구축 — 12개 클라이언트 서비스 성과 지표 운영 및 개선 의사결정 지원 (200개 리포트, 40일).</li>
-        </ul>
-      </div>
+<!-- ④ 자격증 / 어학 -->
+<div class="sec-header">기 술 사 항</div>
+<table class="cert-table">
+  <tbody>
+    <tr>
+      <th>기술스택</th>
+      <td>JavaScript ES6 · PHP · MySQL · REST API · Adobe Creative Suite · Figma · Sketch · Shopify · WordPress · Statamic</td>
+    </tr>
+    <tr>
+      <th>클라우드 · 협업</th>
+      <td>AWS (EC2 · S3 · QuickSight · Lambda · Textract 등), Jira, Confluence, Docker, Github</td>
+    </tr>
+    <tr>
+      <th>어학</th>
+      <td>영어 — Full professional proficiency (캐나다 7년 거주)</td>
+    </tr>
+  </tbody>
+</table>
 
-      <div class="exp">
-        <div class="exp-top">
-          <div class="exp-co">Digital Creator</div>
-          <div class="exp-date">2022 – 2024</div>
-        </div>
-        <div class="exp-role">프리랜서 · 디지털 디자인 & 콘텐츠 · Vancouver, BC</div>
-        <ul class="bullets">
-          <li>풀타임 엔지니어링과 병행하여 밴쿠버 지역 소상공인을 위한 웹사이트, 브랜드 아이덴티티, 디지털 콘텐츠를 제작했습니다.</li>
-          <li>주요 클라이언트: Bionelife (건강 보조제 브랜드 — 웹사이트 구축, 라벨 디자인, 콘텐츠), 그린라이트 장학회 (한인 비영리 단체 — 포스터 시리즈, 비주얼 가이드), 캐나다 햇비마켓 (이커머스 운영 및 디지털 콘텐츠).</li>
-        </ul>
-      </div>
-
-      <div class="exp">
-        <div class="exp-top">
-          <div class="exp-co">SplitMango Inc.</div>
-          <div class="exp-date">2021.01 – 2022.05</div>
-        </div>
-        <div class="exp-role">Web Service Planner & Developer · North Vancouver, BC</div>
-        <ul class="bullets">
-          <li>클라이언트 요구사항 분석 → IA 설계 → UX Flow 기획 → Shopify 커머스·WordPress·Statamic 기반 구현까지 서비스 기획 전 과정을 단독 수행했습니다.</li>
-          <li>신규 웹 프로젝트 10개 이상, 클라이언트 계정 30개 이상 — 커머스, 레스토랑, 건축, 비영리 등 다업종 서비스 요구사항을 사용자 중심으로 기획·구현했습니다.</li>
-        </ul>
-      </div>
-
-      <div class="exp">
-        <div class="exp-top">
-          <div class="exp-co">LG전자 · TV 해외영업 In-store Marketing</div>
-          <div class="exp-date">2015.01 – 2019.05</div>
-        </div>
-        <div class="exp-role">글로벌 서비스 기획 · 대리·선임 · 서울 본사</div>
-        <ul class="bullets">
-          <li>글로벌 52개 법인·150여 개국 대상 디지털 서비스 기획·운영 총괄 — 각 시장 요구사항 분석, 현지화 가이드라인 수립, 운영 프로세스 정의.</li>
-          <li>AI TV 사용자 경험 서비스 기획 (시나리오 20개) — 15개국 약 3,000개 매장 동시 운영. 13개국 이상 현지 운영팀 교육 및 서비스 전파.</li>
-        </ul>
-      </div>
-
-      <div class="exp">
-        <div class="exp-top">
-          <div class="exp-co">LG전자 · OLED TV 사업전략 Task</div>
-          <div class="exp-date">2013.01 – 2014.12</div>
-        </div>
-        <div class="exp-role">사원 · 서울 본사</div>
-        <ul class="bullets">
-          <li>세계 최초 OLED TV 출시를 주도한 사업전략 Task 인턴 전환형 채용. C-Level 전략 보고 준비, 글로벌 물량 배분, 미국 법인 슈퍼볼 광고 캠페인 지원.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Right column -->
-  <div>
-
-    <div class="section">
-      <div class="sec-title">Profile</div>
-      <div class="profile-text">글로벌 마케터·UX 디자이너·풀스택 엔지니어로 쌓은 12년의 경험을 바탕으로, 비즈니스 요구사항 분석부터 사용자 Flow 설계, 백오피스 기획, 데이터 기반 개선까지 서비스 기획 전 주기를 직접 수행해왔습니다. 글로벌 52개 법인 서비스 운영, 커머스 플랫폼 기획·구축, B2B SaaS 백오피스 서비스 기획 경험을 보유하고 있습니다.</div>
-    </div>
-
-    <div class="section">
-      <div class="sec-title">Education</div>
-      <div class="edu">
-        <div class="edu-school">BCIT (British Columbia Institute of Technology)</div>
-        <div class="edu-degree">New Media Design & Web Development<br>Diploma with Distinction (우등 졸업)</div>
-      </div>
-      <div class="edu">
-        <div class="edu-school">아주대학교</div>
-        <div class="edu-degree">e-비즈니스학부 · 경영학 복수전공</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="sec-title">Skills</div>
-      <div class="skill-row">
-        <div class="skill-cat">Frontend</div>
-        <div class="skill-val">JavaScript (ES6), HTML / CSS, Tailwind CSS, jQuery</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Backend & Data</div>
-        <div class="skill-val">PHP 8.0, MySQL 8.0, REST API, ETL Pipeline, RabbitMQ</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Cloud & DevOps</div>
-        <div class="skill-val">AWS EC2 / S3 / QuickSight, Docker, Git, Jira / Confluence</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-cat">Design & CMS</div>
-        <div class="skill-val">Figma, Adobe Creative Suite, WordPress, Shopify, Statamic</div>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="sec-title">Key Highlights</div>
-      <div class="highlight">
-        <div class="hl-name">3PIA — AI 인보이스 이상치 분석</div>
-        <div class="hl-impact">$80K+ 세이빙 · 런칭 후 3개월</div>
-      </div>
-      <div class="highlight">
-        <div class="hl-name">LEMs Aggregation 모듈</div>
-        <div class="hl-impact">기존 트래픽 50% · 런칭 후 30일</div>
-      </div>
-      <div class="highlight">
-        <div class="hl-name">BI 마이그레이션 (Looker → QuickSight)</div>
-        <div class="hl-impact">200+ 리포트 · 12 클라이언트 · 40일</div>
-      </div>
-      <div class="highlight">
-        <div class="hl-name">LG AI TV 데모 키트</div>
-        <div class="hl-impact">약 3,000개 매장 · 15개국</div>
-      </div>
-      <div class="highlight">
-        <div class="hl-name">브랜치 아키텍처 재설계</div>
-        <div class="hl-impact">20브랜치 → 3 · 8클라이언트 → 14</div>
-      </div>
-    </div>
-
-  </div>
+<!-- ⑤ 지원동기 -->
+<div class="sec-header">지 원 동 기</div>
+<div class="intro-box">
+  <p>저는 글로벌 기업의 마케터로 시작해 디자이너와 엔지니어로서의 역량을 직접 쌓아온 서비스 기획자입니다. 비즈니스 요구사항을 정의하는 마케터의 안목, 사용자 Flow와 경험을 설계하는 디자이너의 감각, 기술 제약 안에서 실현 가능하게 구현하는 엔지니어의 깊이 — 세 가지 관점을 함께 갖추고 있어 기획과 실행 사이의 간극을 좁혀왔습니다.</p>
+  <p>LG전자에서 전세계로 배포되는 마케팅 Assets을 총괄 기획·운영한 경험과, 캐나다 웹 에이전시 및 스타트업에서 다양한 커머스 웹 솔루션 및 B2B SaaS 기획 및 개발 전 주기를 담당한 경험을 바탕으로, 현대자동차의 웹·커머스 서비스 기획에 기여하고자 지원합니다.</p>
 </div>
 
 </body>
